@@ -44,9 +44,13 @@
     ]
   },
   "devDependencies": {
+    "@commitlint/cli": "^16.0.1",
+    "@commitlint/config-conventional": "^16.0.0",
     "@craco/craco": "^6.4.3",
     "@emotion/babel-preset-css-prop": "^11.2.0",
     "@qhlab/eslint-plugin": "^1.8.5",
-    "eslint": "^8.5.0"
+    "eslint": "^8.5.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.1.4"
   }
 }
