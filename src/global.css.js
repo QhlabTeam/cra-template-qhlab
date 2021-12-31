@@ -1,7 +1,7 @@
 import {css} from '@emotion/react';
 import {normalize} from 'polished';
 
-// 覆写基础全局样式
+// override basic style
 export const rebase = css`
   ${normalize()}
 

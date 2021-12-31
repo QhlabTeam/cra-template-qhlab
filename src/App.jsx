@@ -8,7 +8,7 @@ import {rebase} from './global.css';
 function App() {
   return (
     <>
-      {/* 挂载路由 */}
+      {/* register your routes */}
       <Router>
         <Routes>
           <Route index element={<HomePage />} />
@@ -16,7 +16,7 @@ function App() {
         </Routes>
       </Router>
 
-      {/* 挂载全局样式 */}
+      {/* register your global styles */}
       <GlobalStyle styles={[rebase]} />
     </>
   );
