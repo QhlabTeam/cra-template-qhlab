@@ -1,6 +1,5 @@
 import {css} from '@emotion/react';
 import {Link} from 'react-router-dom';
-import {images} from '../../assets';
 
 export function NotFoundPage() {
   return (
@@ -29,18 +28,6 @@ export function NotFoundPage() {
       >
         Return Home
       </Link>
-
-      <img
-        alt='logo'
-        css={css`
-          filter: saturate(0.4);
-          position: absolute;
-          bottom: 50px;
-          opacity: 0.2;
-        `}
-        height={50}
-        src={images.logoOnly}
-      />
     </div>
   );
 }
