@@ -36,6 +36,7 @@ export function NotFoundPage() {
           filter: saturate(0.4);
           position: absolute;
           bottom: 50px;
+          opacity: 0.2;
         `}
         height={50}
         src={images.logoOnly}
