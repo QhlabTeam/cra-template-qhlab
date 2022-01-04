@@ -3,7 +3,7 @@ import React from 'react';
 import {Route, Routes} from 'react-router-dom';
 import {HomePage} from './containers/HomePage';
 import {NotFoundPage} from './containers/NotFoundPage';
-import {rebase} from './global.css';
+import {layout, rebase} from './global.css';
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
       </Routes>
 
       {/* register your global styles */}
-      <GlobalStyle styles={[rebase]} />
+      <GlobalStyle styles={[rebase, layout]} />
     </>
   );
 }

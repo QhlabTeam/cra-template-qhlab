@@ -49,3 +49,13 @@ export const rebase = css`
     }
   }
 `;
+
+// global layout style
+export const layout = css`
+  html,
+  body,
+  #root,
+  #root > * {
+    height: 100%;
+  }
+`;
