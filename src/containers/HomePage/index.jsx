@@ -9,6 +9,11 @@ export function HomePage() {
         display: flex;
         justify-content: center;
         align-items: center;
+
+        img {
+          width: 100%;
+          max-width: 500px;
+        }
       `}
     >
       <img alt='logo' src={images.logo} />
