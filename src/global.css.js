@@ -1,5 +1,6 @@
 import {css} from '@emotion/react';
 import {normalize} from 'polished';
+import {theme} from './constants/theme';
 
 // override basic style
 export const rebase = css`
@@ -57,5 +58,14 @@ export const layout = css`
   #root,
   #root > * {
     height: 100%;
+  }
+`;
+
+// global theming style
+export const themeing = css`
+  html,
+  body {
+    color: ${theme.colors.TEXT};
+    background-color: ${theme.colors.BACKGROUND};
   }
 `;
