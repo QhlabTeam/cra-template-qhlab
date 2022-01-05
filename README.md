@@ -14,6 +14,7 @@
 
 - [Clone This Template](#clone-this-template)
 - [Installation](#installation)
+- [Scripts](#scripts)
 - [File Structure](#file-structure)
   - [Root](#root)
   - [Src](#src)
@@ -49,6 +50,24 @@ Or
 ```sh
 npm install
 ```
+
+## Scripts
+
+`yarn start`
+
+Runs the app in the development mode.
+
+`yarn build`
+
+Builds the app for production to the `build` folder.
+
+`yarn test`
+
+Launches the test runner in the interactive watch mode.
+
+`yarn lint`
+
+Lint your code quality by eslint.
 
 ## File Structure
 
