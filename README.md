@@ -28,6 +28,8 @@
   - [Styled Components Styling](#styled-components-styling)
 - [Global State Management](#global-state-management)
   - [Basic Usage](#basic-usage-1)
+- [Mocks](#mocks)
+  - [Add a Mock](#add-a-mock)
 - [License](#license)
 
 ## Clone This Template
@@ -256,6 +258,34 @@ Use the atom in your components
 ```jsx
 const [count, setCount] = useAtom(countAtom)
 ...
+```
+
+## Mocks
+
+| Library | Docs                | API |
+| ------- | ------------------- | --- |
+| msw     | <https://mswjs.io/> |
+
+### Add a Mock
+
+Append a handle in `mocks/handles.js` in handlers array
+
+```js
+import {rest} from 'msw';
+
+export const handlers = [
+  ...
+  rest.get('user', (req, res, ctx)=> res(ctx.status(200), ctx.json({
+    username: 'Qhlaber',
+    age: 20
+  })))
+];
+```
+
+Then try to fetch the api, open the devtool in browser, execute:
+
+```js
+fetch('/user').then(res=>res.json()).then(data=>console.log(data))
 ```
 
 ## License
