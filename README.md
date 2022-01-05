@@ -246,7 +246,7 @@ Create a primative atom
 ```jsx
 import { atom } from 'jotai'
 
-const countAtom = atom(0)
+export const countAtom = atom(0)
 ```
 
 Use the atom in your components
