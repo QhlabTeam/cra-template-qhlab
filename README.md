@@ -1,70 +1,251 @@
-# Getting Started with Create React App
+<p align="center">
+  <img src="src/assets/images/logo.png" alt="logo" width="550px" />
+</p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<br />
+<h1 align="center">Qhlab React App Template</h1>
 
-## Available Scripts
+<p align="center"> ⚛️ React App Template for Qhlab, based on <a href="README-CRA.md">CRA</a></p>
+<br />
 
-In the project directory, you can run:
+<p align="center">
+  English | <a href="README-zh_CN.md">简体中文</a>
+</p>
 
-### `yarn start`
+- [Clone This Template](#clone-this-template)
+- [Installation](#installation)
+- [File Structure](#file-structure)
+  - [Root](#root)
+  - [Src](#src)
+- [Routes](#routes)
+  - [Basic Usage](#basic-usage)
+  - [Navigation](#navigation)
+  - [Nested Routes](#nested-routes)
+  - [URL Parameters](#url-parameters)
+- [CSS in JS](#css-in-js)
+  - [CSS Prop Styling](#css-prop-styling)
+  - [Styled Components Styling](#styled-components-styling)
+- [Global State Management](#global-state-management)
+  - [Basic Usage](#basic-usage-1)
+- [License](#license)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Clone This Template
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Clone template with `--bare` flag, and then publish to your own remote repo.
 
-### `yarn test`
+`git clone --bare https://github.com/QhlabTeam/cra-template-qhlab.git`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Or, you can import into your gitlab as a new clone repo
+> gitlab -> new project -> import project -> Repo by URL -> `https://github.com/QhlabTeam/cra-template-qhlab.git` -> configs -> done
 
-### `yarn build`
+## Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```sh
+yarn install
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Or
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```sh
+npm install
+```
 
-### `yarn eject`
+## File Structure
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Root
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```plain
+├── README-CRA.md
+├── README.md
+├── commitlint.config.js
+├── craco.config.js
+├── node_modules
+├── package.json
+├── public
+├── src
+└── yarn.lock
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Src
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```plain
+src
+├── App.jsx
+├── assets
+├── atoms
+├── components
+├── constants
+├── containers
+├── global.css.js
+├── helpers
+├── hooks
+├── index.jsx
+├── mocks
+├── reportWebVitals.js
+└── setupTests.js
+```
 
-## Learn More
+- `index.jsx` : The entry file of the entire app
+- `App.jsx` : The first root Component
+- `global.css.js`: Global style written with 'css in js'
+- `components/` Place global stateless UI components like **Button**, **Link**, **Text**
+- `containers/`: Place stateful components like **route view components**, **layout components**, **business components**, **large combined components**
+- `hooks/`: Place global custom hooks
+- `helpers/`: Place global utility functions and any other useful tools
+- `assets/`: Place your static files like **images**
+- `atoms/`: Place your jotai global states
+- `constants/`: All your constant variables like **configs**
+- `mocks/`: msw mocks
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Routes
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+| Library               | Docs                                 | API                                      |
+| --------------------- | ------------------------------------ | ---------------------------------------- |
+| React Router Dom - V6 | <https://reactrouter.com/docs/en/v6> | <https://reactrouter.com/docs/en/v6/api> |
 
-### Code Splitting
+### Basic Usage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+`index.jsx`
 
-### Analyzing the Bundle Size
+```jsx
+<BrowserRouter>
+  <App />
+</BrowserRouter>
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+`App.jsx`
 
-### Making a Progressive Web App
+```jsx
+<Routes>
+  <Route index element={<HomePage />} />
+  <Route element={<NotFoundPage />} path='*' />
+</Routes>
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Navigation
 
-### Advanced Configuration
+```jsx
+<nav>
+  <Link to='/'>Home</Link>
+  <Link to='/about'>About</Link>
+</nav>
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Nested Routes
 
-### Deployment
+```jsx
+<Routes>
+  <Route element={<Layout />} path='/'>
+    <Route index element={<HomePage />} />
+    <Route element={<NotFoundPage />} path='*' />
+  </Route>
+</Routes>
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### URL Parameters
 
-### `yarn build` fails to minify
+```jsx
+<Routes>
+  <Route path='/:postId' element={<PostPage />} />
+</Routes>
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+`PostPage.jsx`
+
+```jsx
+const {postId} = useParams()
+```
+
+## CSS in JS
+
+Every style should be written in `CSS in JS` using emotion, it's a convention.
+
+| Library         | Docs                                   | API                                |
+| --------------- | -------------------------------------- | ---------------------------------- |
+| @emotion/react  | <https://emotion.sh/docs/introduction> | <https://emotion.sh/docs/css-prop> |
+| @emotion/styled | <https://emotion.sh/docs/introduction> | <https://emotion.sh/docs/styled>   |
+
+### CSS Prop Styling
+
+```jsx
+<button
+  css={css`
+    background-color: hotpink;
+    color: white;
+    &:hover {
+      filter: brightness(1.3);
+    }
+  `}
+  >
+  Click Me
+</button>
+```
+
+If you complains about the readability of the code, you can extract it as a variable.
+
+```jsx
+const buttonCSS = css`
+  background-color: hotpink;
+  color: white;
+  &:hover {
+    filter: brightness(1.3);
+  }
+`
+...
+
+<button css={buttonCSS}>
+  Click Me
+</button>
+```
+
+### Styled Components Styling
+
+Both css prop and styled components are recommend to use.
+
+```jsx
+const Button = styled.button`
+  background-color: hotpink;
+  color: white;
+  &:hover {
+    filter: brightness(1.3);
+  }
+`
+```
+
+## Global State Management
+
+| Library | Docs                                                          | API                               |
+| ------- | ------------------------------------------------------------- | --------------------------------- |
+| Jotai   | <https://jotai.org/> <br> https://jotai.org/docs/introduction | <https://jotai.org/docs/api/core> |
+
+### Basic Usage
+
+Create a primative atom
+
+`atoms/count.js`
+
+```jsx
+import { atom } from 'jotai'
+
+const countAtom = atom(0)
+```
+
+Use the atom in your components
+
+`HomePage.jsx`
+
+```jsx
+const [count, setCount] = useAtom(countAtom)
+...
+```
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
+
+░██████╗░██╗░░██╗██╗░░░░░░█████╗░██████╗░
+██╔═══██╗██║░░██║██║░░░░░██╔══██╗██╔══██╗
+██║██╗██║███████║██║░░░░░███████║██████╦╝
+╚██████╔╝██╔══██║██║░░░░░██╔══██║██╔══██╗
+░╚═██╔═╝░██║░░██║███████╗██║░░██║██████╦╝
+░░░╚═╝░░░╚═╝░░╚═╝╚══════╝╚═╝░░╚═╝╚═════╝░
