@@ -4,13 +4,17 @@
   "version": "1.0.0",
   "main": "build/index.js",
   "scripts": {
-    "start-electron": "nodemon --watch src --ext js,ts --exec \"electron ./start.js\"",
+    "start": "nodemon --watch src --ext js,ts --exec \"electron ./start.js\"",
+    "build": "yarn build-ts && electron-builder -mw",
+    "build-mac": "yarn build-ts && electron-builder --mac",
+    "build-win": "yarn build-ts && electron-builder --win",
     "build-ts": "tsc -p ."
   },
   "license": "MIT",
   "devDependencies": {
     "@qhlab/eslint-plugin": "^1.9.0",
     "electron": "^16.0.7",
+    "electron-builder": "^22.14.5",
     "eslint": "^8.7.0",
     "nodemon": "^2.0.15",
     "ts-node": "^10.4.0",

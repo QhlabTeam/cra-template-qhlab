@@ -24,6 +24,6 @@ const PORT = process.env.PORT ?? 3000;
   await window.loadURL(
     isDev
       ? `http://localhost:${PORT}`
-      : path.join(__dirname, './renderer/index.html') // web builds as renderer folder
+      : path.join(__dirname, '../renderer/index.html') // web builds as renderer folder
   );
 })().catch(() => {});

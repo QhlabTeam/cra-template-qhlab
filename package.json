@@ -2,6 +2,7 @@
   "name": "cra-template-qhlab",
   "version": "0.1.0",
   "private": true,
+  "homepage": "./",
   "scripts": {
     "prepack": "husky install",
     "postinstall": "yarn --cwd electron install",
@@ -9,7 +10,9 @@
     "build": "craco build",
     "test": "craco test",
     "eject": "react-scripts eject",
-    "lint": "eslint 'src/**/*.{js,jsx}'"
+    "lint": "eslint 'src/**/*.{js,jsx}'",
+    "start-electron": "yarn --cwd electron start",
+    "build-electron": "yarn --cwd electron build"
   },
   "dependencies": {
     "@emotion/react": "^11.7.1",
