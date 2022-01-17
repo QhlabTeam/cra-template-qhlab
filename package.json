@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "prepack": "husky install",
+    "postinstall": "yarn --cwd electron install",
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
