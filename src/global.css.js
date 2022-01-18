@@ -1,6 +1,7 @@
 import {css} from '@emotion/react';
 import {normalize} from 'polished';
 import {theme} from './constants/theme';
+import {isElectron} from './helpers/isElectron';
 
 // override basic style
 export const rebase = css`
@@ -69,3 +70,26 @@ export const themeing = css`
     background-color: ${theme.colors.BACKGROUND};
   }
 `;
+
+// electron only
+export const electronOnly =
+  isElectron &&
+  css`
+    /* 绘制顶部拖拽区域 */
+    body::before {
+      content: '';
+      display: block;
+      position: fixed;
+      height: 50px;
+      pointer-events: none;
+      width: 100%;
+      left: 0;
+      top: 0;
+      z-index: 9999;
+      -webkit-app-region: drag;
+    }
+
+    a {
+      -webkit-user-drag: none;
+    }
+  `;

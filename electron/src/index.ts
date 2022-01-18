@@ -20,10 +20,13 @@ const PORT = process.env.PORT ?? 3000;
     },
   });
 
+  // disable open link
+  window.webContents.setWindowOpenHandler(() => ({action: 'deny'}));
+
   // launch window
   await window.loadURL(
     isDev
       ? `http://localhost:${PORT}`
-      : path.join(__dirname, '../renderer/index.html') // web builds as renderer folder
+      : `file://${path.join(__dirname, '../renderer/index.html')}` // web builds as renderer folder
   );
 })().catch(() => {});
