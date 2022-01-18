@@ -6,13 +6,18 @@
   "scripts": {
     "prepack": "husky install",
     "postinstall": "yarn --cwd electron install",
+    "---Web": "",
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
     "eject": "react-scripts eject",
     "lint": "eslint 'src/**/*.{js,jsx}'",
+    "---Electron": "",
     "start-electron": "yarn --cwd electron start",
-    "build-electron": "yarn --cwd electron build"
+    "build-electron": "yarn --cwd electron build",
+    "---All": "",
+    "start-all": "run-p start start-electron",
+    "build-all": "run-s build build-electron"
   },
   "dependencies": {
     "@emotion/react": "^11.7.1",
@@ -40,7 +45,8 @@
     "eslint": "^8.5.0",
     "husky": "^7.0.4",
     "lint-staged": "^12.1.4",
-    "msw": "^0.36.3"
+    "msw": "^0.36.3",
+    "npm-run-all": "^4.1.5"
   },
   "browserslist": {
     "production": [
