@@ -1,4 +1,8 @@
 {
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "@emotion/react"
+  },
   "include": ["src"],
   "exclude": ["node_modules"]
 }
