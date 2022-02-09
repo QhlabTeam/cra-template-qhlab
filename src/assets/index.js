@@ -1,5 +1,5 @@
-import logo from './images/logo.png';
 import logoOnly from './images/logo-only.png';
+import logo from './images/logo.png';
 
 export const images = {
   logo,

@@ -1,5 +1,6 @@
 import {css} from '@emotion/react';
 import {normalize} from 'polished';
+
 import {theme} from './constants/theme';
 import {isElectron} from './helpers/isElectron';
 

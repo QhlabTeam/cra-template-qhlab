@@ -1,6 +1,7 @@
 import {Global as GlobalStyle} from '@emotion/react';
 import React from 'react';
 import {Route, Routes} from 'react-router-dom';
+
 import {HomePage} from './containers/HomePage';
 import {NotFoundPage} from './containers/NotFoundPage';
 import {electronOnly, layout, rebase, themeing} from './global.css';
