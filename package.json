@@ -11,7 +11,7 @@
     "build": "craco build",
     "test": "craco test",
     "eject": "react-scripts eject",
-    "lint": "eslint 'src/**/*.{js,jsx}'",
+    "lint": "eslint \"src/**/*.{js,jsx}\"",
     "---Electron": "",
     "start-electron": "yarn --cwd electron start",
     "build-electron": "yarn --cwd electron build",
