@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "./",
   "scripts": {
-    "prepack": "husky install",
+    "prepare": "husky install",
     "postinstall": "yarn --cwd electron install",
     "---Web": "",
     "start": "craco start",
