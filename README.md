@@ -288,6 +288,8 @@ Then try to fetch the api, open the devtool in browser, execute:
 fetch('/user').then(res=>res.json()).then(data=>console.log(data))
 ```
 
+It's done if you see the response log in console.
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
