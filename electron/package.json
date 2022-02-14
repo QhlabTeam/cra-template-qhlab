@@ -5,9 +5,9 @@
   "main": "build/index.js",
   "scripts": {
     "start": "nodemon --watch src --ext js,ts --exec \"electron ./start.js\"",
-    "build": "yarn build-ts && electron-builder -mw",
-    "build-mac": "yarn build-ts && electron-builder --mac",
-    "build-win": "yarn build-ts && electron-builder --win",
+    "build": "yarn build-ts && node ./setEnv.js electron-builder -mw",
+    "build-mac": "yarn build-ts && node ./setEnv.js electron-builder --mac",
+    "build-win": "yarn build-ts && node ./setEnv.js electron-builder --win",
     "build-ts": "tsc -p ."
   },
   "license": "MIT",
