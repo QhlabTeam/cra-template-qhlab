@@ -2,7 +2,6 @@
   "name": "cra-template-qhlab",
   "version": "0.1.0",
   "private": true,
-  "homepage": "./",
   "scripts": {
     "prepare": "husky install",
     "postinstall": "yarn --cwd electron install",
@@ -12,12 +11,16 @@
     "test": "craco test",
     "eject": "react-scripts eject",
     "lint": "eslint \"src/**/*.{js,jsx}\"",
+    "---Web-mock": "",
+    "start-mock": "REACT_APP_MSW_ENABLED=true craco start",
+    "build-mock": "REACT_APP_MSW_ENABLED=true craco build",
     "---Electron": "",
     "start-electron": "yarn --cwd electron start",
+    "build-renderer": "cross-env PUBLIC_URL=./ BUILD_PATH=./electron/build/renderer yarn build",
     "build-electron": "yarn --cwd electron build",
     "---All": "",
     "start-all": "run-p start start-electron",
-    "build-all": "run-s build build-electron"
+    "build-all": "run-s build-renderer build-electron"
   },
   "dependencies": {
     "@emotion/react": "^11.7.1",
@@ -42,6 +45,7 @@
     "@craco/craco": "^6.4.3",
     "@emotion/babel-preset-css-prop": "^11.2.0",
     "@qhlab/eslint-plugin": "^1.8.5",
+    "cross-env": "^7.0.3",
     "eslint": "^8.5.0",
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-sort-keys-fix": "^1.1.2",

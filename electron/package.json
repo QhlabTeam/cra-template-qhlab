@@ -2,13 +2,14 @@
   "name": "electron",
   "productName": "Qhlab Desktop",
   "version": "1.0.0",
-  "main": "build/index.js",
+  "main": "build/electron/index.js",
   "scripts": {
     "start": "nodemon --watch src --ext js,ts --exec \"electron ./start.js\"",
-    "build": "yarn build-ts && node ./setEnv.js electron-builder -mw",
-    "build-mac": "yarn build-ts && node ./setEnv.js electron-builder --mac",
-    "build-win": "yarn build-ts && node ./setEnv.js electron-builder --win",
-    "build-ts": "tsc -p ."
+    "build": "yarn build-ts && yarn builder -mw",
+    "build-mac": "yarn build-ts && yarn builder --mac",
+    "build-win": "yarn build-ts && yarn builder --win",
+    "build-ts": "tsc -p .",
+    "builder": "electron-builder -c ./electron-builder-config.js"
   },
   "license": "MIT",
   "devDependencies": {
