@@ -1,2 +1,0 @@
-"src/**/*.{js,jsx}":
-  - yarn lint --fix

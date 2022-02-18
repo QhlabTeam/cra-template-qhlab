@@ -1782,10 +1782,10 @@
     schema-utils "^3.0.0"
     source-map "^0.7.3"
 
-"@qhlab/eslint-plugin@^1.8.5":
-  version "1.8.5"
-  resolved "https://registry.npmjs.org/@qhlab/eslint-plugin/-/eslint-plugin-1.8.5.tgz#36692e943a5bf3393e650c2978b57a8dbde7de86"
-  integrity sha512-3SO71aHXO+rwtUwnXbYP3Hc9jpIpzFw+u7FiO4WfdGs5GUqqa2ELKgHYcZljwpApw6O/00dc7hNR3UkT3QN9Jw==
+"@qhlab/eslint-plugin@^1.10.0":
+  version "1.10.0"
+  resolved "https://registry.npmjs.org/@qhlab/eslint-plugin/-/eslint-plugin-1.10.0.tgz#75857a0a2c8e2dd141fe90dfa7c9b21f888afbc2"
+  integrity sha512-vENxlsf13LghTx6hx79S29TLfLw8llp2D4ueav++wM0s3EPDqek+3wJdZ2v4T9tOqoQgj+d4PzzkHZsC6bF8aw==
   dependencies:
     "@commitlint/cli" "^14.1.0"
     "@commitlint/config-conventional" "^14.1.0"
@@ -1793,10 +1793,13 @@
     "@typescript-eslint/parser" "^5.4.0"
     cosmiconfig "^7.0.1"
     eslint-config-prettier "^8.3.0"
+    eslint-plugin-import "^2.25.4"
     eslint-plugin-markdown "^2.2.1"
     eslint-plugin-prettier "^4.0.0"
     eslint-plugin-react "^7.26.1"
     eslint-plugin-react-hooks "^4.2.0"
+    eslint-plugin-sort-keys-fix "^1.1.2"
+    eslint-plugin-unused-imports "^2.0.0"
     eslint-plugin-vue "^8.0.3"
     husky "^7.0.4"
     lint-staged "^11.2.6"

@@ -35,8 +35,19 @@
 ## Clone This Template
 
 Clone template with `--bare` flag, and then publish to your own remote repo.
+> https://docs.github.com/en/repositories/creating-and-managing-repositories/duplicating-a-repository
 
-`git clone --bare https://github.com/QhlabTeam/cra-template-qhlab.git`
+```bash
+git clone --bare https://github.com/QhlabTeam/cra-template-qhlab.git old-repo
+
+cd old-repo
+git push --mirror https://github.com/QhlabTeam/new-repo
+
+cd ..
+rm -rf old-repo
+
+git clone https://github.com/QhlabTeam/new-repo
+```
 
 Or, you can import into your gitlab as a new clone repo
 > gitlab -> new project -> import project -> Repo by URL -> `https://github.com/QhlabTeam/cra-template-qhlab.git` -> configs -> done
