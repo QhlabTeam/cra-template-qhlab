@@ -45,6 +45,7 @@
     "@craco/craco": "^6.4.3",
     "@emotion/babel-preset-css-prop": "^11.2.0",
     "@qhlab/eslint-plugin": "^1.10.0",
+    "@types/react": "^18.0.5",
     "cross-env": "^7.0.3",
     "eslint": "^8.5.0",
     "eslint-plugin-import": "^2.25.4",
