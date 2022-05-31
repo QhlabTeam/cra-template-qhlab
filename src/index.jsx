@@ -1,3 +1,4 @@
+import {ClickToComponent} from 'click-to-react-component';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {unstable_HistoryRouter as HistoryRouter} from 'react-router-dom';
@@ -13,6 +14,7 @@ if (process.env.NODE_ENV === 'development') {
 
 ReactDOM.render(
   <React.StrictMode>
+    <ClickToComponent />
     <HistoryRouter history={history}>
       <App />
     </HistoryRouter>
