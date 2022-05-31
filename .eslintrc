@@ -1,3 +1,6 @@
 {
-  "extends": ["plugin:@qhlab/react"]
+  "extends": ["plugin:@qhlab/react"],
+  "parserOptions": {
+    "project": "./jsconfig.json"
+  }
 }
