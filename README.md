@@ -30,6 +30,7 @@
   - [Basic Usage](#basic-usage-1)
 - [Mocks](#mocks)
   - [Add a Mock](#add-a-mock)
+- [Click To React Component](#click-to-react-component)
 - [License](#license)
 
 ## Clone This Template
@@ -300,6 +301,14 @@ fetch('/user').then(res=>res.json()).then(data=>console.log(data))
 ```
 
 It's done if you see the response log in console.
+
+## Click To React Component
+
+Press `Option` + Click to open component source code in editor.
+
+| Library                  | Docs                                                 | API |
+| ------------------------ | ---------------------------------------------------- | --- |
+| click-to-react-component | <https://github.com/ericclemmons/click-to-component> |
 
 ## License
 
