@@ -4,10 +4,11 @@ import ReactDOM from 'react-dom';
 import {unstable_HistoryRouter as HistoryRouter} from 'react-router-dom';
 
 import App from './App';
+import {env} from './constants/env';
 import {history} from './helpers/history';
 import reportWebVitals from './reportWebVitals';
 
-if (process.env.NODE_ENV === 'development') {
+if (env.MSW_ENABLED) {
   const {worker} = require('./mocks/browser');
   worker.start();
 }
