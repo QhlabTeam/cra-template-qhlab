@@ -13,6 +13,7 @@
 </p>
 
 - [Clone This Template](#clone-this-template)
+- [Keep Updates](#keep-updates)
 - [Installation](#installation)
 - [Scripts](#scripts)
 - [File Structure](#file-structure)
@@ -35,8 +36,11 @@
 
 ## Clone This Template
 
-Clone template with `--bare` flag, and then publish to your own remote repo.
-> https://docs.github.com/en/repositories/creating-and-managing-repositories/duplicating-a-repository
+The simplest way is by import this repo into your gitlab/github as a new clone repo
+> gitlab/github -> new project -> import project -> Repo by URL -> `https://github.com/QhlabTeam/cra-template-qhlab.git` -> configs -> done
+
+Or manually, clone template with `--bare` flag, and then publish to your own remote blank repo.
+> <https://docs.github.com/en/repositories/creating-and-managing-repositories/duplicating-a-repository>
 
 ```bash
 git clone --bare https://github.com/QhlabTeam/cra-template-qhlab.git old-repo
@@ -50,8 +54,20 @@ rm -rf old-repo
 git clone https://github.com/QhlabTeam/new-repo
 ```
 
-Or, you can import into your gitlab as a new clone repo
-> gitlab -> new project -> import project -> Repo by URL -> `https://github.com/QhlabTeam/cra-template-qhlab.git` -> configs -> done
+## Keep Updates
+
+Once you cloned this template repo, create a `template` branch with this template repo remote url, so that you can keep updates by merging the newest `template` branch.
+
+```sh
+git remote add template https://github.com/QhlabTeam/cra-template-qhlab.git
+git switch -c template template/main
+```
+
+Also, you can create another `template-upgrade-to-react-18` branch
+
+```sh
+git switch -c template-upgrade-to-react-18 template/upgrade-to-react-18
+```
 
 ## Installation
 
