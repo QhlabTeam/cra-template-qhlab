@@ -1,8 +1,8 @@
 import {css} from '@emotion/react';
 import {normalize} from 'polished';
 
-import {theme} from './constants/theme';
-import {isElectron} from './helpers/isElectron';
+import {theme} from '../constants/theme';
+import {isElectron} from './isElectron';
 
 // override basic style
 export const rebase = css`
@@ -57,8 +57,7 @@ export const rebase = css`
 export const layout = css`
   html,
   body,
-  #root,
-  #root > * {
+  #root {
     height: 100%;
   }
 `;

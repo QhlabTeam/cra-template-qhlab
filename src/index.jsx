@@ -1,11 +1,8 @@
-import {ClickToComponent} from 'click-to-react-component';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {unstable_HistoryRouter as HistoryRouter} from 'react-router-dom';
 
 import App from './App';
 import {env} from './constants/env';
-import {history} from './helpers/history';
 import reportWebVitals from './reportWebVitals';
 
 if (env.MSW_ENABLED) {
@@ -15,10 +12,7 @@ if (env.MSW_ENABLED) {
 
 ReactDOM.render(
   <React.StrictMode>
-    <ClickToComponent />
-    <HistoryRouter history={history}>
-      <App />
-    </HistoryRouter>
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );

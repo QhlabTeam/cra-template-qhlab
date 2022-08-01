@@ -1,17 +1,13 @@
 import {css} from '@emotion/react';
 import {Link} from 'react-router-dom';
 
+import {Page} from '../../components/Page';
+
 export function NotFoundPage() {
   return (
-    <div
+    <Page
       className='NotFoundPage'
-      css={css`
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;
-        color: slategray;
-      `}
+      css={{justifyContent: 'center', alignItems: 'center'}}
     >
       <h1>Not Found</h1>
 
@@ -28,6 +24,6 @@ export function NotFoundPage() {
       >
         Return Home
       </Link>
-    </div>
+    </Page>
   );
 }
