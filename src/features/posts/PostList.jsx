@@ -37,7 +37,7 @@ export function PostList() {
           <PostListItem>
             <PostListItemAvatar seed={item.id} />
             <div>
-              <h2>{item.title}</h2>
+              <h2 style={{textTransform: 'capitalize'}}>{item.title}</h2>
               <p>{item.body}</p>
             </div>
           </PostListItem>

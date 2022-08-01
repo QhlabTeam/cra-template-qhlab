@@ -9,6 +9,7 @@ export function Logo({src}) {
       style={{
         width: '100%',
         maxWidth: 500,
+        height: 150,
       }}
     />
   );
