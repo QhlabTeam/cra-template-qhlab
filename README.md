@@ -28,7 +28,6 @@
   - [CSS Prop Styling](#css-prop-styling)
   - [Styled Components Styling](#styled-components-styling)
 - [Global State Management](#global-state-management)
-  - [Basic Usage](#basic-usage-1)
 - [Mocks](#mocks)
   - [Add a Mock](#add-a-mock)
 - [Click To React Component](#click-to-react-component)
@@ -263,30 +262,11 @@ const Button = styled.button`
 
 ## Global State Management
 
-| Library | Docs                                                          | API                               |
-| ------- | ------------------------------------------------------------- | --------------------------------- |
-| Jotai   | <https://jotai.org/> <br> https://jotai.org/docs/introduction | <https://jotai.org/docs/api/core> |
+> Use React Context API instead.
 
-### Basic Usage
-
-Create a primative atom
-
-`atoms/count.js`
-
-```jsx
-import { atom } from 'jotai'
-
-export const countAtom = atom(0)
-```
-
-Use the atom in your components
-
-`HomePage.jsx`
-
-```jsx
-const [count, setCount] = useAtom(countAtom)
-...
-```
+| Library   | Docs                                                              | API                                   |
+| --------- | ----------------------------------------------------------------- | ------------------------------------- |
+| ~~Jotai~~ | ~~<https://jotai.org/> <br> https://jotai.org/docs/introduction~~ | ~~<https://jotai.org/docs/api/core>~~ |
 
 ## Mocks
 
