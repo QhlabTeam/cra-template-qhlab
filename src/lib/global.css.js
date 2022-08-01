@@ -10,7 +10,6 @@ export const rebase = css`
 
   html {
     line-height: 1.4;
-    overflow: overlay;
     box-sizing: border-box;
   }
 
