@@ -1,6 +1,5 @@
-import {images} from '../../assets';
-import {Image} from '../../components/Image';
 import {Page} from '../../components/Page';
+import {Logo} from '../../features/brand/Logo';
 
 export function HomePage() {
   return (
@@ -12,14 +11,7 @@ export function HomePage() {
         padding: 20,
       }}
     >
-      <Image
-        alt='logo'
-        src={images.logo}
-        style={{
-          width: '100%',
-          maxWidth: 500,
-        }}
-      />
+      <Logo />
     </Page>
   );
 }
