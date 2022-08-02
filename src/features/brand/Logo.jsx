@@ -1,16 +1,17 @@
 import {images} from '../../assets';
 import {Image} from '../../components/Image';
 
-export function Logo({src}) {
+export function Logo({src, ...rest}) {
   return (
     <Image
       alt='logo'
-      src={src ?? images.logo}
-      style={{
+      css={{
         width: '100%',
         maxWidth: 500,
         height: 150,
       }}
+      src={src ?? images.logo}
+      {...rest}
     />
   );
 }
