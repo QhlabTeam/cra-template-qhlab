@@ -40,7 +40,7 @@ export function HomePage() {
         css={{
           position: 'absolute',
           bottom: 20,
-          width: 180,
+          height: 60,
         }}
       />
     </Page>

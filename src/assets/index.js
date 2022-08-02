@@ -1,9 +1,6 @@
-import logoOnly from './images/logo-only.png';
-import logo from './images/logo.png';
-
 export const images = {
-  logo,
-  logoOnly,
+  logo: require('./images/logo.png'),
+  logoOnly: require('./images/logo-only.png'),
   githubMark: require('./images/GitHub-Mark-32px.png'),
 };
 

@@ -24,6 +24,7 @@ export function Intro() {
       >
         Welcome to Qhlab
       </h1>
+
       <div
         css={{
           textAlign: 'center',
