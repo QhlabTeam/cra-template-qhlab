@@ -1,4 +1,5 @@
 {
+  "$schema": "https://raw.githubusercontent.com/iamyoki/better-scripts/main/lib/schema.json",
   "web": {
     "alias": "🌐 Web",
     "desc": "Web scripts",

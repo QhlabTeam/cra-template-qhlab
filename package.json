@@ -34,7 +34,7 @@
     "@emotion/babel-preset-css-prop": "^11.2.0",
     "@qhlab/eslint-plugin": "^1.10.0",
     "@types/react": "^18.0.12",
-    "better-scripts": "^0.0.6",
+    "better-scripts": "^0.0.7",
     "cross-env": "^7.0.3",
     "eslint": "^8.5.0",
     "eslint-plugin-import": "^2.25.4",
