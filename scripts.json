@@ -1,0 +1,32 @@
+{
+  "web": {
+    "alias": "🌐 Web",
+    "desc": "Web scripts",
+    "scripts": {
+      "start": "craco start",
+      "start-mock": "REACT_APP_MSW_ENABLED=true craco start",
+      "build": "craco build",
+      "build-mock": "REACT_APP_MSW_ENABLED=true craco build",
+      "test": "craco test",
+      "eject": "react-scripts eject",
+      "lint": "eslint \"src/**/*.{js,jsx}\""
+    }
+  },
+  "electron": {
+    "alias": "🖥  Electron",
+    "desc": "Electron scripts",
+    "scripts": {
+      "start-electron": "yarn --cwd electron start",
+      "build-renderer": "cross-env PUBLIC_URL=./ BUILD_PATH=./electron/build/renderer yarn build",
+      "build-electron": "yarn --cwd electron build"
+    }
+  },
+  "all": {
+    "alias": "🌐 Web & 🖥  Electron",
+    "desc": "Both web and electron related scripts",
+    "scripts": {
+      "start-all": "run-p start start-electron",
+      "build-all": "run-s build-renderer build-electron"
+    }
+  }
+}
