@@ -5,6 +5,11 @@
     "desc": "Start a development server",
     "command": "craco start"
   },
+  "storybook": {
+    "alias": "📚 Storybook",
+    "desc": "Start a development storybook",
+    "command": "start-storybook -p 6006 -s public"
+  },
   "build": {
     "alias": "📦 Build",
     "desc": "Create a production build",

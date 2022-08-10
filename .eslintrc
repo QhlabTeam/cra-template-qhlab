@@ -2,5 +2,13 @@
   "extends": ["plugin:@qhlab/react"],
   "parserOptions": {
     "project": "./jsconfig.json"
-  }
+  },
+  "overrides": [
+    {
+      "files": ["**/*.stories.*"],
+      "rules": {
+        "import/no-anonymous-default-export": "off"
+      }
+    }
+  ]
 }

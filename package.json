@@ -5,7 +5,8 @@
   "scripts": {
     "prepare": "husky install",
     "postinstall": "yarn --cwd electron install",
-    "scripts": "better-scripts"
+    "scripts": "better-scripts",
+    "build-storybook": "build-storybook -s public"
   },
   "dependencies": {
     "@emotion/react": "^11.7.1",
@@ -33,7 +34,18 @@
     "@craco/craco": "^6.4.3",
     "@emotion/babel-preset-css-prop": "^11.2.0",
     "@qhlab/eslint-plugin": "^1.10.0",
+    "@storybook/addon-actions": "^6.5.10",
+    "@storybook/addon-essentials": "^6.5.10",
+    "@storybook/addon-interactions": "^6.5.10",
+    "@storybook/addon-links": "^6.5.10",
+    "@storybook/builder-webpack5": "^6.5.10",
+    "@storybook/manager-webpack5": "^6.5.10",
+    "@storybook/node-logger": "^6.5.10",
+    "@storybook/preset-create-react-app": "^4.1.2",
+    "@storybook/react": "^6.5.10",
+    "@storybook/testing-library": "^0.0.13",
     "@types/react": "^18.0.5",
+    "babel-plugin-named-exports-order": "^0.0.2",
     "better-scripts": "^0.3.2",
     "cross-env": "^7.0.3",
     "eslint": "^8.5.0",
@@ -43,7 +55,9 @@
     "husky": "^7.0.4",
     "lint-staged": "^12.1.4",
     "msw": "^0.36.3",
-    "npm-run-all": "^4.1.5"
+    "npm-run-all": "^4.1.5",
+    "prop-types": "^15.8.1",
+    "webpack": "^5.74.0"
   },
   "browserslist": {
     "production": [

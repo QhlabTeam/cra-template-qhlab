@@ -1,9 +1,16 @@
+import {keyframes} from '@emotion/react';
 import styled from '@emotion/styled';
 import {RiMouseLine} from 'react-icons/ri';
 import {Link} from 'react-router-dom';
 
 const Container = styled.div`
   padding: 0 10px;
+`;
+
+const gradientAni = keyframes`
+  to {
+    background-position: 200%;
+  }
 `;
 
 export function Intro() {
@@ -17,7 +24,11 @@ export function Intro() {
           marginBottom: 40,
           fontFamily: 'SF Pro Display',
           fontWeight: 900,
-          background: 'linear-gradient(to right bottom, #5083fc, #8e41e1)',
+          background:
+            'linear-gradient(to right, #5083fc, #9528e2, #a61ef0, #5083fc)',
+          backgroundSize: '200%',
+
+          animation: `${gradientAni} 1s linear infinite`,
           WebkitTextFillColor: 'transparent',
           backgroundClip: 'text',
         }}
