@@ -3425,10 +3425,10 @@ batch@0.6.1:
   resolved "https://registry.npmjs.org/batch/-/batch-0.6.1.tgz#dc34314f4e679318093fc760272525f94bf25c16"
   integrity sha512-x+VAiMRL6UPkx+kudNvxTl6hB2XNNCG2r+7wixVfIYwu/2HKRXimwQyaumLjMveWvT2Hkd/cAJw+QBMfJ/EKVw==
 
-better-scripts@^0.0.7:
-  version "0.0.7"
-  resolved "https://registry.npmjs.org/better-scripts/-/better-scripts-0.0.7.tgz#d1fe736aa6d92f7f985870215ab33387e4dd57e0"
-  integrity sha512-7OLsr9dBLZ1BIUBWXsgwLBFpWZblVlpxuHfv49nncekjRCNV8gEFDjGYotVSaT4Por2kXfr7IxDE1/D6+wcPaw==
+better-scripts@^0.3.2:
+  version "0.3.2"
+  resolved "https://registry.npmjs.org/better-scripts/-/better-scripts-0.3.2.tgz#b8b636234e6958b0b1deb7f40b39b3bbc9deae45"
+  integrity sha512-oSdRm+5PTT7bwlhcm03iSPmtxnnX1saH+kbfR8su0ulj8TyDE82+laUi0ITLJHWSg76iTYeMk5ZvqptibzsB2w==
   dependencies:
     chalk "^5.0.1"
     cli-table3 "^0.6.2"
@@ -11188,9 +11188,9 @@ yargs-parser@^20.2.2, yargs-parser@^20.2.3:
   integrity sha512-y11nGElTIV+CT3Zv9t7VKl+Q3hTQoT9a1Qzezhhl6Rp21gJ/IVTW7Z3y9EWXhuUBC2Shnf+DX0antecpAwSP8w==
 
 yargs-parser@^21.0.0:
-  version "21.0.1"
-  resolved "https://registry.npmjs.org/yargs-parser/-/yargs-parser-21.0.1.tgz#0267f286c877a4f0f728fceb6f8a3e4cb95c6e35"
-  integrity sha512-9BK1jFpLzJROCI5TzwZL/TU4gqjK5xiHV/RfWLOahrjAko/e4DJkRDZQXfvqAsiZzzYhgAzbgz6lg48jcm4GLg==
+  version "21.1.1"
+  resolved "https://registry.npmjs.org/yargs-parser/-/yargs-parser-21.1.1.tgz#9096bceebf990d21bb31fa9516e0ede294a77d35"
+  integrity sha512-tVpsJW7DdjecAiFpbIB1e3qxIQsE6NoPc5/eTdrbbIC4h0LVsWhnoa3g+m2HclBIujHzsxZ4VJVA+GUuc2/LBw==
 
 yargs@^16.2.0:
   version "16.2.0"

@@ -1,33 +1,68 @@
 {
   "$schema": "https://raw.githubusercontent.com/iamyoki/better-scripts/main/lib/schema.json",
-  "web": {
-    "alias": "🌐 Web",
-    "desc": "Web scripts",
+  "dev": {
+    "alias": "🌟 Dev",
+    "desc": "Start a development server",
+    "command": "craco start"
+  },
+  "build": {
+    "alias": "📦 Build",
+    "desc": "Create a production build",
+    "command": "craco build"
+  },
+  "test": {
+    "alias": "🧪 Test",
+    "desc": "Run unit tests",
+    "command": "craco test"
+  },
+  "lint": {
+    "alias": "🔎 Lint",
+    "desc": "Lint source code",
+    "command": "eslint \"src/**/*.{js,jsx}\""
+  },
+  "eject": {
+    "alias": "💿 Eject",
+    "desc": "Eject webpack configs (BE CAREFUL!)",
+    "command": "react-scripts eject"
+  },
+  "mocks": {
+    "alias": "📂 Mocks",
+    "desc": "Mock scripts",
     "scripts": {
-      "start": "craco start",
-      "start-mock": "REACT_APP_MSW_ENABLED=true craco start",
-      "build": "craco build",
-      "build-mock": "REACT_APP_MSW_ENABLED=true craco build",
-      "test": "craco test",
-      "eject": "react-scripts eject",
-      "lint": "eslint \"src/**/*.{js,jsx}\""
+      "dev-mock": [
+        "REACT_APP_MSW_ENABLED=true craco start",
+        "Start dev with mock server"
+      ],
+      "build-mock": [
+        "REACT_APP_MSW_ENABLED=true craco build",
+        "Create a build with mocked data"
+      ]
     }
   },
   "electron": {
-    "alias": "🖥  Electron",
+    "alias": "📂 Electron",
     "desc": "Electron scripts",
     "scripts": {
-      "start-electron": "yarn --cwd electron start",
-      "build-renderer": "cross-env PUBLIC_URL=./ BUILD_PATH=./electron/build/renderer yarn build",
-      "build-electron": "yarn --cwd electron build"
+      "start-electron": ["yarn --cwd electron start", "Start a dev electron"],
+      "build-renderer": [
+        "cross-env PUBLIC_URL=./ BUILD_PATH=./electron/build/renderer yarn build",
+        "Build web renderer for electron"
+      ],
+      "build-electron": ["yarn --cwd electron build", "Build electron"]
     }
   },
   "all": {
-    "alias": "🌐 Web & 🖥  Electron",
+    "alias": "📂 Web and Electron",
     "desc": "Both web and electron related scripts",
     "scripts": {
-      "start-all": "run-p start start-electron",
-      "build-all": "run-s build-renderer build-electron"
+      "start-all": [
+        "run-p start start-electron",
+        "Start both web and electron in dev"
+      ],
+      "build-all": [
+        "run-s build-renderer build-electron",
+        "Build both web and electron"
+      ]
     }
   }
 }
