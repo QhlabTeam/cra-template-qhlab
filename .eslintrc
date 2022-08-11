@@ -1,14 +1,6 @@
 {
-  "extends": ["plugin:@qhlab/react"],
+  "extends": ["plugin:@qhlab/react", "plugin:storybook/recommended"],
   "parserOptions": {
     "project": "./jsconfig.json"
-  },
-  "overrides": [
-    {
-      "files": ["**/*.stories.*"],
-      "rules": {
-        "import/no-anonymous-default-export": "off"
-      }
-    }
-  ]
+  }
 }
