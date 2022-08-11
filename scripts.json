@@ -7,8 +7,14 @@
   },
   "storybook": {
     "alias": "📚 Storybook",
-    "desc": "Start a development storybook",
-    "command": "start-storybook -p 6006 -s public"
+    "desc": "Storybook scripts",
+    "scripts": {
+      "dev": [
+        "start-storybook -p 6006 -s public",
+        "Start storybook development"
+      ],
+      "build": ["start-storybook -p 6006 -s public", "Build storybook"]
+    }
   },
   "build": {
     "alias": "📦 Build",
@@ -20,10 +26,13 @@
     "desc": "Run unit tests",
     "command": "craco test"
   },
-  "lint": {
-    "alias": "🔎 Lint",
+  "lints": {
+    "alias": "🔎 Lint scripts",
     "desc": "Lint source code",
-    "command": "eslint \"src/**/*.{js,jsx}\""
+    "scripts": {
+      "lint": ["eslint \"src/**/*.{js,jsx}\"", "Lint only"],
+      "lint-fix": ["eslint \"src/**/*.{js,jsx}\" --fix", "Lint and fix"]
+    }
   },
   "eject": {
     "alias": "💿 Eject",
@@ -31,7 +40,7 @@
     "command": "react-scripts eject"
   },
   "mocks": {
-    "alias": "📂 Mocks",
+    "alias": "🤡 Mocks",
     "desc": "Mock scripts",
     "scripts": {
       "dev-mock": [
@@ -45,7 +54,7 @@
     }
   },
   "electron": {
-    "alias": "📂 Electron",
+    "alias": "💻 Electron",
     "desc": "Electron scripts",
     "scripts": {
       "start-electron": ["yarn --cwd electron start", "Start a dev electron"],

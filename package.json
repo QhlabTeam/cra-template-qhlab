@@ -5,9 +5,7 @@
   "scripts": {
     "prepare": "husky install",
     "postinstall": "yarn --cwd electron install",
-    "scripts": "better-scripts",
-    "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+    "scripts": "better-scripts"
   },
   "dependencies": {
     "@emotion/react": "^11.7.1",
