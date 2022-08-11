@@ -1,0 +1,23 @@
+import {Image} from  './Image'
+import {Meta, Story, Canvas} from '@storybook/addon-docs'
+import {images} from '../assets'
+
+<Meta title='Components/Image' />
+
+export const Template = args => <Image src={images.logo} {...args} />
+
+# Image
+
+A Image UI component
+
+<Canvas>
+  <Story name='Image' args={{
+    src: images.logo,
+    size: 300,
+    fit: 'contain'
+  }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+
