@@ -5,3 +5,4 @@ export const Page = styled.div`
   flex-direction: column;
   height: 100%;
 `;
+Page.displayName = 'Page';

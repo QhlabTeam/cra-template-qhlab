@@ -6,3 +6,4 @@ export const Image = styled.img((props) => ({
   objectFit: props.fit ?? 'contain',
   flexShrink: 0,
 }));
+Image.displayName = 'Image';

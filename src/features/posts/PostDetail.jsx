@@ -9,7 +9,7 @@ export function PostDetail({id}) {
 
   const userInfo = userInfoData?.results[0];
 
-  if (!postData) return <div>Loading...</div>;
+  if (!postData || !userInfo) return <div>Loading...</div>;
 
   return (
     <PostDetailContainer className='PostDetail'>
