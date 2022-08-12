@@ -59,13 +59,21 @@ Once you cloned this template repo, create a `template` branch with this templat
 
 ```sh
 git remote add template https://github.com/QhlabTeam/cra-template-qhlab.git
+git fetch template
 git switch -c template template/main
 ```
 
 Also, you can create another `template-upgrade-to-react-18` branch
 
 ```sh
+git fetch template upgrade-to-react-18
 git switch -c template-upgrade-to-react-18 template/upgrade-to-react-18
+```
+
+Make sure your template branch is targeting the correct remote
+
+```sh
+git branch -vv
 ```
 
 ## Installation
