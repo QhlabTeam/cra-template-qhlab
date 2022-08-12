@@ -1,5 +1,7 @@
 /* eslint-disable react/jsx-filename-extension */
 import {Global} from '@emotion/react';
+import React from 'react';
+import {withRouter} from 'storybook-addon-react-router-v6';
 
 import {rebase, layout} from '../src/lib/global.css';
 
@@ -14,6 +16,7 @@ export const parameters = {
 };
 
 export const decorators = [
+  withRouter,
   (Story) => (
     <>
       <Global styles={[rebase, layout]} />

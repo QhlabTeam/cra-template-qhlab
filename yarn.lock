@@ -13490,7 +13490,7 @@ react-icons@^4.3.1:
   resolved "https://registry.npmjs.org/react-icons/-/react-icons-4.4.0.tgz#a13a8a20c254854e1ec9aecef28a95cdf24ef703"
   integrity sha512-fSbvHeVYo/B5/L4VhB7sBA1i2tS8MkT0Hb9t2H1AVPkwGfVHLJCqyr2Py9dKMxsyM63Eng1GkdZfbWj+Fmv8Rg==
 
-react-inspector@^5.1.0:
+react-inspector@^5.1.0, react-inspector@^5.1.1:
   version "5.1.1"
   resolved "https://registry.npmjs.org/react-inspector/-/react-inspector-5.1.1.tgz#58476c78fde05d5055646ed8ec02030af42953c8"
   integrity sha512-GURDaYzoLbW8pMGXwYPDBIv6nqei4kK7LPRZ9q9HCZF54wqXz/dnylBp/kfE9XmekBhHvLDdcYeyIwSrvtOiWg==
@@ -14797,6 +14797,13 @@ store2@^2.12.0:
   version "2.14.2"
   resolved "https://registry.npmjs.org/store2/-/store2-2.14.2.tgz#56138d200f9fe5f582ad63bc2704dbc0e4a45068"
   integrity sha512-siT1RiqlfQnGqgT/YzXVUNsom9S0H1OX+dpdGN1xkyYATo4I6sep5NmsRD/40s3IIOvlCq6akxkqG82urIZW1w==
+
+storybook-addon-react-router-v6@^0.1.13:
+  version "0.1.13"
+  resolved "https://registry.npmjs.org/storybook-addon-react-router-v6/-/storybook-addon-react-router-v6-0.1.13.tgz#5a3c8ce275d9a109fe48288b43d3fa8854410cd5"
+  integrity sha512-yC7f8HnEi9+8/ei/beoBF4+8ydH2BpcT8UOlCdQWyu1zNeRyKQsRWSUOztPCcVlfWdUa3R5PLCm5cVC0ymtoXg==
+  dependencies:
+    react-inspector "^5.1.1"
 
 stream-browserify@^2.0.1:
   version "2.0.2"
