@@ -9,6 +9,7 @@ export default {
   },
   argTypes: {
     width: {
+      description: 'Image width (px)',
       control: {
         type: 'range',
         min: 10,
@@ -16,6 +17,7 @@ export default {
       },
     },
     height: {
+      description: 'Image height (px)',
       control: {
         type: 'range',
         min: 10,
@@ -24,6 +26,7 @@ export default {
     },
     size: {
       type: 'number',
+      description: 'Both width and height',
       control: {
         type: 'range',
         min: 10,
@@ -31,6 +34,7 @@ export default {
       },
     },
     fit: {
+      description: "Same as 'object-fit' property",
       control: {
         type: 'radio',
         options: ['initial', 'contain', 'cover'],
@@ -43,7 +47,7 @@ const Template = (args) => <Image {...args} />;
 
 export const Basic = Template.bind({});
 Basic.args = {
-  width: 100,
+  width: 200,
   height: 100,
   size: undefined,
   fit: 'contain',
