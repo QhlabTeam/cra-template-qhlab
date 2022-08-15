@@ -1,4 +1,4 @@
-import {PostListItemAvatar} from '.';
+import {PostListItemAvatar} from './PostListItemAvatar';
 
 /** @type {import('@storybook/react').Meta} */
 export default {

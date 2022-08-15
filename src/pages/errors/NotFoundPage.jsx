@@ -1,7 +1,15 @@
-import {css} from '@emotion/react';
+import styled from '@emotion/styled';
 import {Link} from 'react-router-dom';
 
 import {Page} from '../../components/Page';
+
+const ReturnLink = styled(Link)`
+  background-color: whitesmoke;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-top: 8px;
+`;
 
 export function NotFoundPage() {
   return (
@@ -11,19 +19,9 @@ export function NotFoundPage() {
     >
       <h1>Not Found</h1>
 
-      <Link
-        replace
-        css={css`
-          background-color: whitesmoke;
-          padding: 4px 12px;
-          border-radius: 4px;
-          font-size: 14px;
-          margin-top: 8px;
-        `}
-        to='/'
-      >
+      <ReturnLink replace to='/'>
         Return Home
-      </Link>
+      </ReturnLink>
     </Page>
   );
 }

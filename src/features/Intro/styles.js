@@ -4,11 +4,13 @@ import styled from '@emotion/styled';
 export const Container = styled.div`
   padding: 0 10px;
 `;
+
 const gradientAni = keyframes`
   to {
     background-position: 200%;
   }
 `;
+
 export const Heading = styled.h1({
   fontSize: 70,
   textAlign: 'center',
@@ -24,6 +26,7 @@ export const Heading = styled.h1({
   WebkitTextFillColor: 'transparent',
   backgroundClip: 'text',
 });
+
 export const Contents = styled.div({
   textAlign: 'center',
   fontSize: 18,
