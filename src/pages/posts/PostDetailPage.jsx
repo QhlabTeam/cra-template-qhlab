@@ -3,7 +3,7 @@ import {useNavigate, useParams} from 'react-router-dom';
 
 import {Page} from '../../components/Page';
 import {PostDetail} from '../../features/posts/PostDetail';
-import {NavButton} from './components';
+import {NavButton} from './styles';
 
 export function PostDetailPage() {
   const {id} = useParams();

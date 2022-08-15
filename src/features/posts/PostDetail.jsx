@@ -1,7 +1,7 @@
 import {Image} from '../../components/Image';
 import {useGetPost} from './api/useGetPost';
 import {useGetUserInfo} from './api/useGetUserInfo';
-import {PostDetailContainer} from './components';
+import {PostDetailContainer} from './styles';
 
 export function PostDetail({id}) {
   const {data: postData} = useGetPost({id});

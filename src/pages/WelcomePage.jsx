@@ -1,10 +1,10 @@
 import {RiExternalLinkLine} from 'react-icons/ri';
 
-import {images} from '../../assets';
-import {Image} from '../../components/Image';
-import {Page} from '../../components/Page';
-import {Logo} from '../../features/brand/Logo';
-import {Intro} from '../../features/intro/Intro';
+import {images} from '../assets';
+import {Image} from '../components/Image';
+import {Page} from '../components/Page';
+import {Logo} from '../features/brand/Logo';
+import {Intro} from '../features/intro/Intro';
 
 export function WelcomePage() {
   return (

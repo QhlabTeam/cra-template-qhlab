@@ -1,12 +1,12 @@
 import {RiArrowLeftLine, RiArrowRightLine} from 'react-icons/ri';
 
+import {PostList} from './PostList';
+import {PostListItemAvatar} from './PostListItemAvatar';
 import {
   PostListItem,
   PostListPagination,
   PostListPaginationButton,
-} from './components';
-import {PostList} from './PostList';
-import {PostListItemAvatar} from './PostListItemAvatar';
+} from './styles';
 
 /** @type {import('@storybook/react').Meta} */
 export default {

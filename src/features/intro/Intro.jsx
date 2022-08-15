@@ -25,10 +25,10 @@ export function Intro() {
           fontFamily: 'SF Pro Display',
           fontWeight: 900,
           background:
-            'linear-gradient(to right, #5083fc, #9528e2, #a61ef0, #5083fc)',
+            'linear-gradient(to right, royalblue, hotpink, hotpink, royalblue)',
           backgroundSize: '200%',
 
-          animation: `${gradientAni} 1s linear infinite`,
+          animation: `${gradientAni} 2s linear infinite`,
           WebkitTextFillColor: 'transparent',
           backgroundClip: 'text',
         }}
