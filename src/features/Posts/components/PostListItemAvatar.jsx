@@ -1,8 +1,8 @@
 import {css} from '@emotion/react';
 import {between, size} from 'polished';
 
-import {Image} from '../../components/Image';
-import {useGetUserInfo} from './api/useGetUserInfo';
+import {Image} from '../../../components/Image';
+import {useGetUserInfo} from '../api/useGetUserInfo';
 
 export function PostListItemAvatar({seed}) {
   const {data} = useGetUserInfo({seed});

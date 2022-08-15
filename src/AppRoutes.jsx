@@ -1,6 +1,6 @@
 import {Route, Routes} from 'react-router-dom';
 
-import {NotFoundPage} from './pages/NotFoundPage';
+import {NotFoundPage} from './pages/errors/NotFoundPage';
 import {PostDetailPage} from './pages/PostDetailPage';
 import {PostsPage} from './pages/PostsPage';
 import {WelcomePage} from './pages/WelcomePage';

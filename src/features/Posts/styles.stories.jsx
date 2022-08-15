@@ -1,25 +1,15 @@
 import {RiArrowLeftLine, RiArrowRightLine} from 'react-icons/ri';
 
+import {PostListItemAvatar} from './components/PostListItemAvatar';
 import {
   PostListItem,
   PostListPagination,
   PostListPaginationButton,
-} from './components';
-import {PostList} from './PostList';
-import {PostListItemAvatar} from './PostListItemAvatar';
+} from './styles';
 
-/** @type {import('@storybook/react').Meta} */
-export default {
-  component: PostList,
-  parameters: {
-    reactRouter: {
-      routePath: '/posts',
-    },
-  },
-};
-export const Basic = (args) => <PostList />;
+export default {};
 
-export const StaticItem = (args) => (
+export const ListItem = (args) => (
   <PostListItem>
     <PostListItemAvatar seed={args.seed} />
     <div>
@@ -28,19 +18,19 @@ export const StaticItem = (args) => (
     </div>
   </PostListItem>
 );
-StaticItem.args = {
+ListItem.args = {
   /** Avatar random seed */
   seed: 1,
   title: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.',
   body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis quod vel tenetur ipsum harum, ad sequi praesentium expedita facilis eaque consequuntur, cupiditate iusto, veritatis incidunt totam dolor voluptas pariatur. Ratione?',
 };
-StaticItem.argTypes = {
+ListItem.argTypes = {
   seed: {description: 'Avatar random seed'},
   title: {description: 'Post title'},
   body: {description: 'Post description'},
 };
 
-export const StaticPagination = ({onClickPrev, onClickNext}) => (
+export const ListPagination = ({onClickPrev, onClickNext}) => (
   <PostListPagination>
     <PostListPaginationButton disabled onClick={onClickPrev}>
       <RiArrowLeftLine />
@@ -51,7 +41,7 @@ export const StaticPagination = ({onClickPrev, onClickNext}) => (
     </PostListPaginationButton>
   </PostListPagination>
 );
-StaticPagination.argTypes = {
+ListPagination.argTypes = {
   onClickPrev: {action: 'onClickPrev'},
   onClickNext: {action: 'onClickNext'},
 };

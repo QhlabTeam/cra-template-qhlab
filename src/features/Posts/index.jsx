@@ -3,13 +3,13 @@ import {RiArrowLeftLine, RiArrowRightLine} from 'react-icons/ri';
 import {Link} from 'react-router-dom';
 
 import {useGetPosts} from './api/useGetPosts';
+import {PostListItemAvatar} from './components/PostListItemAvatar';
 import {
   PostListContainer,
   PostListItem,
   PostListPagination,
   PostListPaginationButton,
-} from './components';
-import {PostListItemAvatar} from './PostListItemAvatar';
+} from './styles';
 
 export function PostList() {
   const [page, setPage] = useState(1);

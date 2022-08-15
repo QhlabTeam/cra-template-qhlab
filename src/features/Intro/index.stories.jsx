@@ -1,5 +1,5 @@
+import {Intro} from '.';
 import {Page} from '../../components/Page';
-import {Intro} from './Intro';
 
 /** @type {import('@storybook/react').Meta} */
 export default {

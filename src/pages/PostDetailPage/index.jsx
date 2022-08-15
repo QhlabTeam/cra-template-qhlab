@@ -2,8 +2,8 @@ import {RiArrowLeftSLine} from 'react-icons/ri';
 import {useNavigate, useParams} from 'react-router-dom';
 
 import {Page} from '../../components/Page';
-import {PostDetail} from '../../features/posts/PostDetail';
-import {NavButton} from './components';
+import {PostDetail} from '../../features/PostDetail';
+import {NavButton} from './styles';
 
 export function PostDetailPage() {
   const {id} = useParams();

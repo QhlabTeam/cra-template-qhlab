@@ -1,5 +1,5 @@
-import * as ImageStories from '../../components/Image.stories';
-import ImageStoriesDefault from '../../components/Image.stories';
+import * as ImageStories from './Image.stories';
+import ImageStoriesDefault from './Image.stories';
 import {Logo} from './Logo';
 
 /** @type {import('@storybook/react').Meta} */

@@ -1,19 +1,9 @@
 import {Image} from '../../components/Image';
-import {PostDetailContainer} from './components';
-import {PostDetail} from './PostDetail';
+import {PostDetailContainer} from './styles';
 
-/** @type {import('@storybook/react').Meta} */
-export default {
-  component: PostDetail,
-};
+export default {};
 
-/** @type {import('@storybook/react').Story} */
-export const Basic = (args) => <PostDetail id={args.id} />;
-Basic.args = {
-  id: 1,
-};
-
-export const Static = (args) => (
+export const PostDetail = (args) => (
   <PostDetailContainer className='PostDetail'>
     <h2 style={{textTransform: 'capitalize'}}>{args.title}</h2>
     <div>
@@ -25,7 +15,7 @@ export const Static = (args) => (
     <p>{args.body}</p>
   </PostDetailContainer>
 );
-Static.args = {
+PostDetail.args = {
   title: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam?',
   avatar: 'https://randomuser.me/api/portraits/thumb/men/42.jpg',
   firstName: 'John',
