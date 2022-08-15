@@ -3,7 +3,7 @@ import {RiArrowLeftLine, RiArrowRightLine} from 'react-icons/ri';
 import {Link} from 'react-router-dom';
 
 import {useGetPosts} from './api/useGetPosts';
-import {PostListItemAvatar} from './PostListItemAvatar';
+import {PostListItemAvatar} from './components/PostListItemAvatar';
 import {
   PostListContainer,
   PostListItem,

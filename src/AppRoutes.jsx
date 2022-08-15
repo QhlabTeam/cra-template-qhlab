@@ -1,8 +1,8 @@
 import {Route, Routes} from 'react-router-dom';
 
-import {NotFoundPage} from './pages/errors/NotFoundPage';
-import {PostDetailPage} from './pages/posts/PostDetailPage';
-import {PostsPage} from './pages/posts/PostsPage';
+import {NotFoundPage} from './pages/NotFoundPage';
+import {PostDetailPage} from './pages/PostDetailPage';
+import {PostsPage} from './pages/PostsPage';
 import {WelcomePage} from './pages/WelcomePage';
 
 export function AppRoutes() {

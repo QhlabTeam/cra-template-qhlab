@@ -1,5 +1,5 @@
+import {PostDetail} from '.';
 import {Image} from '../../components/Image';
-import {PostDetail} from './PostDetail';
 import {PostDetailContainer} from './styles';
 
 /** @type {import('@storybook/react').Meta} */

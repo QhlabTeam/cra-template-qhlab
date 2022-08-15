@@ -1,6 +1,6 @@
 import {Image} from '../../components/Image';
+import {useGetUserInfo} from '../Posts/api/useGetUserInfo';
 import {useGetPost} from './api/useGetPost';
-import {useGetUserInfo} from './api/useGetUserInfo';
 import {PostDetailContainer} from './styles';
 
 export function PostDetail({id}) {

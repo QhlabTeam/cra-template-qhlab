@@ -1,7 +1,7 @@
 import {RiArrowLeftLine, RiArrowRightLine} from 'react-icons/ri';
 
-import {PostList} from './PostList';
-import {PostListItemAvatar} from './PostListItemAvatar';
+import {PostList} from '.';
+import {PostListItemAvatar} from './components/PostListItemAvatar';
 import {
   PostListItem,
   PostListPagination,

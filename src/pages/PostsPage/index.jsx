@@ -1,5 +1,5 @@
 import {Page} from '../../components/Page';
-import {PostList} from '../../features/posts/PostList';
+import {PostList} from '../../features/Posts';
 
 export function PostsPage() {
   return (

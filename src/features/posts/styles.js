@@ -32,9 +32,3 @@ export const PostListPaginationButton = styled.button`
     color: rgba(0, 0, 0, 0.2);
   }
 `;
-
-export const PostDetailContainer = styled(PostListItem)`
-  width: 100%;
-  max-width: 520px;
-  flex-direction: column;
-`;
