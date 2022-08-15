@@ -6,10 +6,10 @@ import {Page} from '../../components/Page';
 import {Logo} from '../../features/brand/Logo';
 import {Intro} from '../../features/intro/Intro';
 
-export function WelcomPage() {
+export function WelcomePage() {
   return (
     <Page
-      className='WelcomPage'
+      className='WelcomePage'
       css={{
         alignItems: 'center',
         justifyContent: 'center',
