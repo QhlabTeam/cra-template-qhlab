@@ -13,5 +13,11 @@
     "editor.defaultFormatter": "dbaeumer.vscode-eslint"
   },
   "editor.formatOnSave": true,
-  "eslint.format.enable": true
+  "eslint.format.enable": true,
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/*/**": true,
+    "**/.hg/store/**": true
+  }
 }
