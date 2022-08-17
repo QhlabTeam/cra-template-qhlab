@@ -4,7 +4,7 @@ export const PostListContainer = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 20px;
-  padding: 20px;
+  padding: 0;
   margin: 0;
   list-style-type: none;
 `;

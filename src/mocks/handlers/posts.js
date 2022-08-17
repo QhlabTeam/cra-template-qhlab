@@ -1,6 +1,9 @@
 import {rest} from 'msw';
+import {nanoid} from 'nanoid';
 
 import {db} from '../db';
+
+const userId = nanoid();
 
 export const postsHandlers = [
   rest.get('/posts', (req, res, ctx) => {
@@ -13,5 +16,18 @@ export const postsHandlers = [
     });
 
     return res(ctx.delay(), ctx.json(result));
+  }),
+
+  rest.post('/posts', (req, res, ctx) => {
+    const {title, body} = req.body;
+
+    db.post.create({
+      id: nanoid(),
+      title,
+      body,
+      userId,
+    });
+
+    return res(ctx.status(200), ctx.delay(2000));
   }),
 ];
