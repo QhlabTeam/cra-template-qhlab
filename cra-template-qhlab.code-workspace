@@ -24,7 +24,8 @@
       "**/.git/subtree-cache/**": true,
       "**/node_modules/*/**": true,
       "**/.hg/store/**": true
-    }
+    },
+    "explorer.sortOrderLexicographicOptions": "lower"
   },
   "extensions": {
     "recommendations": [
