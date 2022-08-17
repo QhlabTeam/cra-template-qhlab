@@ -2,12 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import App from './App';
-import {initMocks} from './mocks/initMocks';
+import {setupMocks} from './mocks/setupMocks';
 import reportWebVitals from './reportWebVitals';
 
 // If you want to enable msw mocks, pass an env:
 // REACT_APP_ENABLE_MSW=true when you start the app
-initMocks();
+setupMocks();
 
 ReactDOM.render(
   <React.StrictMode>
