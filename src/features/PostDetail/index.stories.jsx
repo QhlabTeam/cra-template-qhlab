@@ -1,4 +1,5 @@
 import {PostDetail} from '.';
+import {db} from '../../mocks/db';
 
 /** @type {import('@storybook/react').Meta} */
 export default {
@@ -8,5 +9,5 @@ export default {
 /** @type {import('@storybook/react').Story} */
 export const Basic = (args) => <PostDetail id={args.id} />;
 Basic.args = {
-  id: 1,
+  id: db.post.findFirst({}).id,
 };

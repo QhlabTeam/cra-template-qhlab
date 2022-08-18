@@ -4,7 +4,7 @@ import useSWR from 'swr';
 export function useGetPosts({query} = {}) {
   return useSWR(
     stringifyUrl({
-      url: 'https://jsonplaceholder.typicode.com/posts',
+      url: '/posts',
       query,
     })
   );

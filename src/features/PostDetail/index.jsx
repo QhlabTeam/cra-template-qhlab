@@ -1,26 +1,35 @@
-import {Image} from '../../components/Image';
-import {useGetUserInfo} from '../Posts/api/useGetUserInfo';
+import {Link} from 'react-router-dom';
+
+import {ListItemAuthor, ListItemHeader, ListItemAvatar} from '../Posts/styles';
 import {useGetPost} from './api/useGetPost';
-import {PostDetailContainer} from './styles';
+import {PostDetailContainer, PostDetailImage} from './styles';
 
 export function PostDetail({id}) {
-  const {data: postData} = useGetPost({id});
-  const {data: userInfoData} = useGetUserInfo({seed: id});
+  const {data} = useGetPost({id});
 
-  const userInfo = userInfoData?.results[0];
-
-  if (!postData || !userInfo) return <div>Loading...</div>;
+  if (!data) return <div>Loading...</div>;
 
   return (
     <PostDetailContainer className='PostDetail'>
-      <h2 style={{textTransform: 'capitalize'}}>{postData.title}</h2>
-      <div>
-        <Image size={40} src={userInfo.picture.thumbnail} />
-        <address>
-          {userInfo.name.first} {userInfo.name.last}
-        </address>
-      </div>
-      <p>{postData.body}</p>
+      <h1 style={{textTransform: 'capitalize'}}>{data.title}</h1>
+
+      <ListItemHeader>
+        <Link to={`#${data.author.id}`}>
+          <ListItemAvatar src={data.author.avatar} />
+        </Link>
+        <ListItemAuthor>
+          <strong>{data.author.username}</strong>
+          <time>
+            {new Date(data.createdAt).toLocaleDateString().replaceAll('/', '.')}{' '}
+          </time>
+        </ListItemAuthor>
+      </ListItemHeader>
+
+      <a href={data.cover} rel='noreferrer' target='_blank'>
+        <PostDetailImage src={data.cover} />
+      </a>
+
+      <p dangerouslySetInnerHTML={{__html: data.body}} />
     </PostDetailContainer>
   );
 }

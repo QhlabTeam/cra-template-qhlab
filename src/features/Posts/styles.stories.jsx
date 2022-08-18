@@ -1,47 +1,59 @@
 import {RiArrowLeftLine, RiArrowRightLine} from 'react-icons/ri';
+import {Link} from 'react-router-dom';
 
-import {PostListItemAvatar} from './components/PostListItemAvatar';
+import {Image} from '../../components/Image';
+import {db} from '../../mocks/db';
 import {
-  PostListItem,
-  PostListPagination,
-  PostListPaginationButton,
+  ListItem,
+  ListPagination,
+  ListPaginationButton,
+  ListItemAuthor,
+  ListItemHeader,
+  ListItemAvatar,
+  ListItemCover,
 } from './styles';
 
 export default {};
 
-export const ListItem = (args) => (
-  <PostListItem>
-    <PostListItemAvatar seed={args.seed} />
-    <div>
-      <h2 style={{textTransform: 'capitalize'}}>{args.title}</h2>
-      <p>{args.body}</p>
-    </div>
-  </PostListItem>
+export const AListItem = (args) => (
+  <ListItem>
+    <ListItemHeader>
+      <Link to='#'>
+        <ListItemAvatar src={args.avatar} />
+      </Link>
+      <ListItemAuthor>
+        <strong>{args.username}</strong>
+        <time>
+          {new Date(args.createdDate).toLocaleDateString().replaceAll('/', '.')}{' '}
+        </time>
+      </ListItemAuthor>
+    </ListItemHeader>
+    <ListItemCover>
+      <Image fit='cover' src={args.cover} />
+    </ListItemCover>
+  </ListItem>
 );
-ListItem.args = {
-  /** Avatar random seed */
-  seed: 1,
-  title: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.',
-  body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis quod vel tenetur ipsum harum, ad sequi praesentium expedita facilis eaque consequuntur, cupiditate iusto, veritatis incidunt totam dolor voluptas pariatur. Ratione?',
-};
-ListItem.argTypes = {
-  seed: {description: 'Avatar random seed'},
-  title: {description: 'Post title'},
-  body: {description: 'Post description'},
+const post = db.post.findFirst({});
+const author = post.author;
+AListItem.args = {
+  avatar: author.avatar,
+  username: author.username,
+  createdDate: post.createdAt,
+  cover: post.cover,
 };
 
-export const ListPagination = ({onClickPrev, onClickNext}) => (
-  <PostListPagination>
-    <PostListPaginationButton disabled onClick={onClickPrev}>
+export const AListPagination = ({onClickPrev, onClickNext}) => (
+  <ListPagination>
+    <ListPaginationButton disabled onClick={onClickPrev}>
       <RiArrowLeftLine />
-    </PostListPaginationButton>
+    </ListPaginationButton>
 
-    <PostListPaginationButton onClick={onClickNext}>
+    <ListPaginationButton onClick={onClickNext}>
       <RiArrowRightLine />
-    </PostListPaginationButton>
-  </PostListPagination>
+    </ListPaginationButton>
+  </ListPagination>
 );
-ListPagination.argTypes = {
+AListPagination.argTypes = {
   onClickPrev: {action: 'onClickPrev'},
   onClickNext: {action: 'onClickNext'},
 };

@@ -3,34 +3,29 @@ import {useNavigate, useParams} from 'react-router-dom';
 
 import {Page} from '../../components/Page';
 import {PostDetail} from '../../features/PostDetail';
-import {NavButton} from './styles';
+import {AddButton} from '../../features/Posts/styles';
+import {Container} from '../PostsPage/styles';
 
 export function PostDetailPage() {
   const {id} = useParams();
   const navigate = useNavigate();
 
   return (
-    <Page
-      className='PostDetailPage'
-      style={{
-        padding: 20,
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}
-    >
-      <div>
-        <PostDetail id={id} />
-
-        <NavButton
+    <Page className='PostDetailPage'>
+      <Container>
+        <AddButton
           style={{
-            marginTop: 20,
+            alignSelf: 'flex-start',
+            marginBottom: 20,
           }}
           onClick={() => navigate(-1)}
         >
           <RiArrowLeftSLine />
-          <span>Back</span>
-        </NavButton>
-      </div>
+          Back
+        </AddButton>
+
+        <PostDetail id={id} />
+      </Container>
     </Page>
   );
 }

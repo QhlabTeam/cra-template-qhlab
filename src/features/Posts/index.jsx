@@ -1,14 +1,23 @@
 import {useState} from 'react';
-import {RiArrowLeftLine, RiArrowRightLine} from 'react-icons/ri';
+import {RiArrowLeftLine, RiArrowRightLine, RiAddLine} from 'react-icons/ri';
 import {Link} from 'react-router-dom';
 
+import {Image} from '../../components/Image';
 import {useGetPosts} from './api/useGetPosts';
-import {PostListItemAvatar} from './components/PostListItemAvatar';
 import {
-  PostListContainer,
-  PostListItem,
-  PostListPagination,
-  PostListPaginationButton,
+  Header,
+  AddButton,
+  List,
+  ListItemAuthor,
+  ListItemHeader,
+  ListItemAvatar,
+  ListItemCover,
+} from './styles';
+import {
+  Container,
+  ListItem,
+  ListPagination,
+  ListPaginationButton,
 } from './styles';
 
 export function PostList() {
@@ -16,7 +25,7 @@ export function PostList() {
   const {data} = useGetPosts({
     query: {
       _page: page,
-      _limit: 10,
+      _limit: 9,
     },
   });
 
@@ -31,31 +40,50 @@ export function PostList() {
   if (!data) return <div>Loading...</div>;
 
   return (
-    <PostListContainer className='PostList'>
-      {data.map((item) => (
-        <Link key={item.id} to={`/posts/${item.id}`}>
-          <PostListItem>
-            <PostListItemAvatar seed={item.id} />
-            <div>
-              <h2 style={{textTransform: 'capitalize'}}>{item.title}</h2>
-              <p>{item.body}</p>
-            </div>
-          </PostListItem>
-        </Link>
-      ))}
+    <Container className='PostList'>
+      <Header>
+        <h1>Posts</h1>
+        <AddButton as={Link} to='/posts/new'>
+          <RiAddLine size={20} />
+          <span>New Post</span>
+        </AddButton>
+      </Header>
 
-      <PostListPagination>
-        <PostListPaginationButton
+      <List>
+        {data.map((item) => (
+          <ListItem key={item.id}>
+            <ListItemHeader>
+              <Link to={`#${item.author.id}`}>
+                <ListItemAvatar src={item.author.avatar} />
+              </Link>
+              <ListItemAuthor>
+                <strong>{item.author.username}</strong>
+                <time>
+                  {new Date(item.createdAt)
+                    .toLocaleDateString()
+                    .replaceAll('/', '.')}{' '}
+                </time>
+              </ListItemAuthor>
+            </ListItemHeader>
+            <ListItemCover as={Link} to={`/posts/${item.id}`}>
+              <Image fit='cover' src={item.cover} />
+            </ListItemCover>
+          </ListItem>
+        ))}
+      </List>
+
+      <ListPagination>
+        <ListPaginationButton
           disabled={page <= 1}
           onClick={handleClickPrevPage}
         >
           <RiArrowLeftLine />
-        </PostListPaginationButton>
+        </ListPaginationButton>
 
-        <PostListPaginationButton onClick={handleClickNextPage}>
+        <ListPaginationButton onClick={handleClickNextPage}>
           <RiArrowRightLine />
-        </PostListPaginationButton>
-      </PostListPagination>
-    </PostListContainer>
+        </ListPaginationButton>
+      </ListPagination>
+    </Container>
   );
 }

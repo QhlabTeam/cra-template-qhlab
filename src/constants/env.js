@@ -1,3 +1,3 @@
 export const env = {
-  MSW_ENABLED: Boolean(process.env.REACT_APP_MSW_ENABLED),
+  ENABLE_MSW: process.env.REACT_APP_ENABLE_MSW === 'true',
 };

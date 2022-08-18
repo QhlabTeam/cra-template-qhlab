@@ -1,11 +1,11 @@
-import {css} from '@emotion/react';
+import {css, Global} from '@emotion/react';
 import {normalize} from 'polished';
 
-import {theme} from '../constants/theme';
-import {isElectron} from './isElectron';
+import {theme} from './constants/theme';
+import {isElectron} from './lib/isElectron';
 
 // override basic style
-export const rebase = css`
+const rebase = css`
   ${normalize()}
 
   html {
@@ -43,17 +43,21 @@ export const rebase = css`
     border: none;
     cursor: pointer;
 
-    &:hover {
+    &:not(:disabled):hover {
       opacity: 0.8;
     }
-    &:active {
+    &:not(:disabled):active {
+      opacity: 0.4;
+    }
+    &:disabled {
+      cursor: not-allowed;
       opacity: 0.4;
     }
   }
 `;
 
 // global layout style
-export const layout = css`
+const layout = css`
   html,
   body,
   #root {
@@ -62,7 +66,7 @@ export const layout = css`
 `;
 
 // global theming style
-export const themeing = css`
+const themeing = css`
   html,
   body {
     color: ${theme.colors.TEXT};
@@ -71,24 +75,26 @@ export const themeing = css`
 `;
 
 // electron only
-export const electronOnly =
-  isElectron &&
-  css`
-    /* 绘制顶部拖拽区域 */
-    body::before {
-      content: '';
-      display: block;
-      position: fixed;
-      height: 50px;
-      pointer-events: none;
-      width: 100%;
-      left: 0;
-      top: 0;
-      z-index: 9999;
-      -webkit-app-region: drag;
-    }
+const electron = css`
+  /* 绘制顶部拖拽区域 */
+  body::before {
+    content: '';
+    display: block;
+    position: fixed;
+    height: 50px;
+    pointer-events: none;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 9999;
+    -webkit-app-region: drag;
+  }
 
-    a {
-      -webkit-user-drag: none;
-    }
-  `;
+  a {
+    -webkit-user-drag: none;
+  }
+`;
+
+export function GlobalStyles() {
+  return <Global styles={[rebase, layout, themeing, isElectron && electron]} />;
+}

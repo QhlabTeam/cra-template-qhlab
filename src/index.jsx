@@ -2,13 +2,12 @@ import React from 'react';
 import {createRoot} from 'react-dom/client';
 
 import App from './App';
-import {env} from './constants/env';
+import {setupMocks} from './mocks/setupMocks';
 import reportWebVitals from './reportWebVitals';
 
-if (env.MSW_ENABLED) {
-  const {worker} = require('./mocks/browser');
-  worker.start();
-}
+// If you want to enable msw mocks, pass an env:
+// REACT_APP_ENABLE_MSW=true when you start the app
+setupMocks();
 
 const root = createRoot(document.getElementById('root'));
 

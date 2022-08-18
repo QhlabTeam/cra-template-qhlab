@@ -16,6 +16,20 @@
       "build": ["start-storybook -p 6006 -s public", "Build storybook"]
     }
   },
+  "mocks": {
+    "alias": "🤡 Mocks",
+    "desc": "Mock scripts",
+    "scripts": {
+      "dev": [
+        "REACT_APP_ENABLE_MSW=true craco start",
+        "Start dev with mock server"
+      ],
+      "build": [
+        "REACT_APP_ENABLE_MSW=true craco build",
+        "Create a build with mocked data"
+      ]
+    }
+  },
   "build": {
     "alias": "📦 Build",
     "desc": "Create a production build",
@@ -38,20 +52,6 @@
     "alias": "💿 Eject",
     "desc": "Eject webpack configs (BE CAREFUL!)",
     "command": "react-scripts eject"
-  },
-  "mocks": {
-    "alias": "🤡 Mocks",
-    "desc": "Mock scripts",
-    "scripts": {
-      "dev-mock": [
-        "REACT_APP_MSW_ENABLED=true craco start",
-        "Start dev with mock server"
-      ],
-      "build-mock": [
-        "REACT_APP_MSW_ENABLED=true craco build",
-        "Create a build with mocked data"
-      ]
-    }
   },
   "electron": {
     "alias": "💻 Electron",

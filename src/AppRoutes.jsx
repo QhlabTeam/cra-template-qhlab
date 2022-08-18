@@ -2,6 +2,7 @@ import {Route, Routes} from 'react-router-dom';
 
 import {NotFoundPage} from './pages/errors/NotFoundPage';
 import {PostDetailPage} from './pages/PostDetailPage';
+import {PostFormPage} from './pages/PostFormPage';
 import {PostsPage} from './pages/PostsPage';
 import {WelcomePage} from './pages/WelcomePage';
 
@@ -10,6 +11,7 @@ export function AppRoutes() {
     <Routes>
       <Route index element={<WelcomePage />} />
       <Route element={<PostsPage />} path='/posts' />
+      <Route element={<PostFormPage />} path='/posts/new' />
       <Route element={<PostDetailPage />} path='/posts/:id' />
       <Route element={<NotFoundPage />} path='*' />
     </Routes>

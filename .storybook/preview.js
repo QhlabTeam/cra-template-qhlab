@@ -1,11 +1,12 @@
 /* eslint-disable react/jsx-filename-extension */
-import {Global} from '@emotion/react';
+import {initialize, mswDecorator} from 'msw-storybook-addon';
 import React from 'react';
 import {withRouter} from 'storybook-addon-react-router-v6';
 import {SWRConfig} from 'swr';
 
-import {rebase, layout} from '../src/lib/global.css';
+import {GlobalStyles} from '../src/GlobalStyles';
 import {request} from '../src/lib/request';
+import {handlers} from '../src/mocks/handlers';
 
 export const parameters = {
   actions: {argTypesRegex: '^on[A-Z].*'},
@@ -18,14 +19,21 @@ export const parameters = {
   previewTabs: {
     'storybook/docs/panel': {index: -1},
   },
+  msw: {
+    handlers,
+  },
 };
 
+// Init msw
+initialize();
+
 export const decorators = [
+  mswDecorator,
   withRouter,
   (Story) => (
     <SWRConfig value={{fetcher: request.get}}>
-      <Global styles={[rebase, layout]} />
       <Story />
+      <GlobalStyles />
     </SWRConfig>
   ),
 ];

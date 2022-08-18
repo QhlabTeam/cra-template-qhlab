@@ -3,7 +3,7 @@ import {rgba} from 'polished';
 const colors = {
   PRIMARY: '#415EC9',
   TEXT: '#000D1A',
-  BACKGROUND: '#FFFFFF',
+  BACKGROUND: '#F6F7F8',
   get blacks() {
     const base = '#000D1A';
     return {
