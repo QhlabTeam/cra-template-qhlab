@@ -3,9 +3,9 @@ import {PostForm} from '../../features/PostForm';
 import {Header} from '../../features/Posts/styles';
 import {Container} from '../PostsPage/styles';
 
-export function NewPostPage() {
+export function PostFormPage() {
   return (
-    <Page className='NewPostPage'>
+    <Page className='PostFormPage'>
       <Container>
         <Header />
 
