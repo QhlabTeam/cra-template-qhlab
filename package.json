@@ -33,6 +33,7 @@
     "@commitlint/config-conventional": "^16.0.0",
     "@craco/craco": "^6.4.3",
     "@emotion/babel-preset-css-prop": "^11.2.0",
+    "@faker-js/faker": "^7.4.0",
     "@mswjs/data": "^0.10.1",
     "@mswjs/storage": "^0.1.0",
     "@qhlab/eslint-plugin": "^1.10.0",

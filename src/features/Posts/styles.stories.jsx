@@ -1,22 +1,18 @@
 import {RiArrowLeftLine, RiArrowRightLine} from 'react-icons/ri';
 
 import {PostListItemAvatar} from './components/PostListItemAvatar';
-import {
-  PostListItem,
-  PostListPagination,
-  PostListPaginationButton,
-} from './styles';
+import {ListItem, ListPagination, ListPaginationButton} from './styles';
 
 export default {};
 
-export const ListItem = (args) => (
-  <PostListItem>
+export const AListItem = (args) => (
+  <ListItem>
     <PostListItemAvatar seed={args.seed} />
     <div>
       <h2 style={{textTransform: 'capitalize'}}>{args.title}</h2>
       <p>{args.body}</p>
     </div>
-  </PostListItem>
+  </ListItem>
 );
 ListItem.args = {
   /** Avatar random seed */
@@ -30,16 +26,16 @@ ListItem.argTypes = {
   body: {description: 'Post description'},
 };
 
-export const ListPagination = ({onClickPrev, onClickNext}) => (
-  <PostListPagination>
-    <PostListPaginationButton disabled onClick={onClickPrev}>
+export const AListPagination = ({onClickPrev, onClickNext}) => (
+  <ListPagination>
+    <ListPaginationButton disabled onClick={onClickPrev}>
       <RiArrowLeftLine />
-    </PostListPaginationButton>
+    </ListPaginationButton>
 
-    <PostListPaginationButton onClick={onClickNext}>
+    <ListPaginationButton onClick={onClickNext}>
       <RiArrowRightLine />
-    </PostListPaginationButton>
-  </PostListPagination>
+    </ListPaginationButton>
+  </ListPagination>
 );
 ListPagination.argTypes = {
   onClickPrev: {action: 'onClickPrev'},

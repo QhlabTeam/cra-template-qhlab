@@ -1,21 +1,45 @@
-import {factory, nullable, primaryKey} from '@mswjs/data';
+/* eslint-disable no-unused-vars */
+import {faker} from '@faker-js/faker';
+import {factory, nullable, oneOf, primaryKey} from '@mswjs/data';
 import {nanoid} from 'nanoid';
+
+import {genArray} from '../utils/genArray';
 
 const models = {
   post: {
     id: primaryKey(Number),
-    userId: Number,
     title: nullable(String),
     body: String,
+    cover: String,
+    createdAt: Number,
+    author: oneOf('user'),
+  },
+  user: {
+    id: primaryKey(Number),
+    username: String,
+    avatar: String,
   },
 };
 
 export const db = factory(models);
 
-// Create init data
-db.post.create({
-  id: nanoid(),
-  userId: nanoid(),
-  title: 'Lorem ipsum dolor sit.',
-  body: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti, a! Quaerat incidunt eligendi nam aspernatur veniam laudantium deleniti molestiae nisi exercitationem saepe obcaecati, ducimus, harum, officiis quas ex sit expedita!',
-});
+// Users
+const users = genArray(12).map(() =>
+  db.user.create({
+    id: nanoid(),
+    username: faker.name.fullName(),
+    avatar: faker.image.avatar(),
+  })
+);
+
+// Posts
+const posts = users.map((user) =>
+  db.post.create({
+    id: nanoid(),
+    title: faker.lorem.sentence(),
+    body: faker.lorem.paragraphs(5, '<br/><br/>'),
+    cover: `${faker.image.city(600, 400)}?lock=${faker.random.numeric(5)}`,
+    createdAt: faker.date.recent(7),
+    author: user,
+  })
+);

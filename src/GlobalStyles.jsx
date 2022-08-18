@@ -43,10 +43,14 @@ const rebase = css`
     border: none;
     cursor: pointer;
 
-    &:hover {
+    &:not(:disabled):hover {
       opacity: 0.8;
     }
-    &:active {
+    &:not(:disabled):active {
+      opacity: 0.4;
+    }
+    &:disabled {
+      cursor: not-allowed;
       opacity: 0.4;
     }
   }

@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
+import {rgba} from 'polished';
 
-import {AddButton} from '../../pages/PostsPage/styles';
+import {AddButton} from '../Posts/styles';
 
 export const Form = styled.form`
   display: flex;
@@ -30,4 +31,9 @@ export const SubmitButton = styled(AddButton)`
     opacity: 0.4;
     cursor: not-allowed;
   }
+`;
+export const CancelButton = styled(SubmitButton)`
+  background-color: ${rgba('orangered', 0.1)};
+  color: orangered;
+  border-color: ${rgba('orangered', 0.2)};
 `;
