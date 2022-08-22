@@ -51,7 +51,7 @@
     "@storybook/testing-library": "^0.0.13",
     "@types/react": "^18.0.5",
     "babel-plugin-named-exports-order": "^0.0.2",
-    "better-scripts": "^0.3.2",
+    "better-scripts": "^0.4.1",
     "cross-env": "^7.0.3",
     "eslint": "^8.5.0",
     "eslint-plugin-import": "^2.25.4",
