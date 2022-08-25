@@ -72,6 +72,20 @@ const themeing = css`
     color: ${theme.colors.TEXT};
     background-color: ${theme.colors.BACKGROUND};
   }
+
+  ::-webkit-scrollbar,
+  ::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    width: 16px;
+    height: 16px;
+    border-radius: 10px;
+    background-clip: padding-box;
+    border: 5px solid transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.6);
+  }
 `;
 
 // electron only
