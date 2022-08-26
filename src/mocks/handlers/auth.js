@@ -8,6 +8,10 @@ import {db} from '../db';
 
 const JWT_SECRET = '123456';
 
+const invalidUsername = (username) => /\s/.test(username);
+
+const invalidPassword = (password) => /\s/.test(password);
+
 export const authHandlers = [
   rest.post(`${env.API_URL}/api/auth/register`, (req, res, ctx) => {
     try {
@@ -21,8 +25,13 @@ export const authHandlers = [
           },
         },
       });
+
       if (existingUser) {
         throw new Error('The user already exists');
+      }
+
+      if (invalidUsername(username) || invalidPassword(password)) {
+        throw new Error('Invalid username or password');
       }
 
       // Create new user
@@ -38,7 +47,7 @@ export const authHandlers = [
       return res(ctx.delay(2000), ctx.json({userInfo, token}));
     } catch (error) {
       return res(
-        ctx.delay(),
+        ctx.delay(2000),
         ctx.status(400),
         ctx.json({
           message: error?.message ?? 'Server Error',
@@ -59,7 +68,12 @@ export const authHandlers = [
           },
         },
       });
-      if (!user || password !== user.password) {
+      if (
+        !user ||
+        password !== user.password ||
+        invalidUsername(username) ||
+        invalidPassword(password)
+      ) {
         throw new Error('Invalid username or password');
       }
 
@@ -70,7 +84,7 @@ export const authHandlers = [
       return res(ctx.delay(2000), ctx.json({userInfo, token}));
     } catch (error) {
       return res(
-        ctx.delay(),
+        ctx.delay(2000),
         ctx.status(400),
         ctx.json({
           message: error?.message ?? 'Server Error',

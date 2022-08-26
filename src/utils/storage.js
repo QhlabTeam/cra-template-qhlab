@@ -15,4 +15,18 @@ export const storage = {
   clearToken() {
     window.localStorage.removeItem(`${env.STORAGE_PREFIX}token`);
   },
+  getUserInfo() {
+    return JSON.parse(
+      window.localStorage.getItem(`${env.STORAGE_PREFIX}userInfo`)
+    );
+  },
+  setUserInfo(UserInfo) {
+    window.localStorage.setItem(
+      `${env.STORAGE_PREFIX}userInfo`,
+      JSON.stringify(UserInfo)
+    );
+  },
+  clearUserInfo() {
+    window.localStorage.removeItem(`${env.STORAGE_PREFIX}userInfo`);
+  },
 };

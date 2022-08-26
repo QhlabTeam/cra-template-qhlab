@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import {useReducer} from 'react';
 
+import {storage} from '../../../utils/storage';
 import {login} from '../api/login';
 import {register} from '../api/register';
 
@@ -65,83 +66,73 @@ const ErrorMessage = styled.p`
 
 const ActionTypes = {
   FIELD: 'FIELD',
-  CLEAR: 'CLEAR',
-  ERRORS: 'ERRORS',
-  SUBMIT: 'SUBMIT',
+  ERROR: 'ERROR',
+  LOGIN: 'LOGIN',
   SUCCESS: 'SUCCESS',
 };
 
-const initial = {
-  name: '',
+const initialState = {
+  username: '',
   password: '',
-  errors: {
-    name: '',
-    password: '',
-  },
+  error: '',
   isLoading: false,
 };
 
-function formReducer(state, action) {
+function loginReducer(state, action) {
   switch (action.type) {
     case ActionTypes.FIELD:
-      return {...state, [action.field]: action.value};
+      return {...state, [action.field]: action.payload};
     case ActionTypes.CLEAR:
-      return initial;
-    case ActionTypes.ERRORS:
+      return initialState;
+    case ActionTypes.ERROR:
       return {
-        ...state,
-        errors: {
-          ...state.errors,
-          ...action.payload,
-        },
+        ...initialState,
+        error: action.payload ?? 'Invalid username or password',
       };
-    case ActionTypes.SUBMIT:
+    case ActionTypes.LOGIN:
       return {
-        ...state,
+        ...initialState,
         isLoading: true,
       };
     case ActionTypes.SUCCESS:
       return {
-        ...state,
-        isLoading: false,
+        ...initialState,
       };
     default:
       return state;
   }
 }
 
-// new jose.EncryptJWT({'urn:example:claim': true})
-//   .setProtectedHeader({alg: 'dir', enc: 'A256GCM'})
-//   .setIssuedAt()
-//   .setIssuer('urn:example:issuer')
-//   .setAudience('urn:example:audience')
-//   .setExpirationTime('2h')
-//   .encrypt(crypto)
-//   .then(console.log);
-
 export function LoginForm({onSuccess}) {
-  const [state, dispatch] = useReducer(formReducer, initial);
-  const {name, password, errors, isLoading} = state;
+  const [state, dispatch] = useReducer(loginReducer, initialState);
+  const {username, password, error, isLoading} = state;
+
+  async function auth(method) {
+    dispatch({type: ActionTypes.LOGIN});
+
+    try {
+      const {userInfo, token} = await method({username, password});
+      dispatch({type: ActionTypes.SUCCESS});
+      storage.setToken(token);
+      storage.setUserInfo(userInfo);
+      if (onSuccess) onSuccess({userInfo, token});
+    } catch (e) {
+      dispatch({type: ActionTypes.ERROR, payload: e.response.data?.message});
+    }
+  }
 
   function handleLogin() {
-    dispatch({type: ActionTypes.SUBMIT});
-    login({username: name, password})
-      .then(() => {})
-      .finally(() => dispatch({type: ActionTypes.CLEAR}));
+    auth(login);
   }
 
   function handleSignup() {
-    dispatch({type: ActionTypes.CLEAR});
-    register({username: name, password})
-      .then((data) => {
-        console.log(data);
-      })
-      .finally(() => dispatch({type: ActionTypes.CLEAR}));
+    auth(register);
   }
 
   return (
     <Container>
       <Form
+        autoComplete='off'
         spellCheck='false'
         onSubmit={(ev) => {
           ev.preventDefault();
@@ -155,19 +146,19 @@ export function LoginForm({onSuccess}) {
             placeholder='Name'
             readOnly={isLoading}
             type='text'
-            value={name}
+            value={username}
             onChange={(ev) =>
               dispatch({
                 type: ActionTypes.FIELD,
-                field: 'name',
-                value: ev.target.value,
+                field: 'username',
+                payload: ev.target.value,
               })
             }
           />
-          {errors.name && <ErrorMessage>{errors.name}</ErrorMessage>}
         </div>
-        <div style={{marginBottom: 20}}>
+        <div style={{marginBottom: error ? 0 : 20}}>
           <Input
+            autoComplete='new-password'
             placeholder='Password'
             readOnly={isLoading}
             type='password'
@@ -176,12 +167,12 @@ export function LoginForm({onSuccess}) {
               dispatch({
                 type: ActionTypes.FIELD,
                 field: 'password',
-                value: ev.target.value,
+                payload: ev.target.value,
               })
             }
           />
-          {errors.password && <ErrorMessage>{errors.password}</ErrorMessage>}
         </div>
+        {error && <ErrorMessage>{error}</ErrorMessage>}
         <LoginButton disabled={isLoading} type='submit'>
           Login
         </LoginButton>
