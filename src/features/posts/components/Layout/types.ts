@@ -1,4 +1,4 @@
-import {Page} from '../elements/Page';
+import {Page} from '../../../../components/elements/Page';
 
 export type ContentLayoutProps = {
   title: string;

@@ -1,10 +1,10 @@
-import {ContentLayout} from '../../../components/layouts/ContentLayout';
+import {Layout} from '../components/Layout';
 import {PostForm} from '../components/PostForm';
 
 export function PostFormPage() {
   return (
-    <ContentLayout showBackButton title='New Post'>
+    <Layout showBackButton title='New Post'>
       <PostForm />
-    </ContentLayout>
+    </Layout>
   );
 }

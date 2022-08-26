@@ -1,39 +1,9 @@
-import styled from '@emotion/styled';
 import {RiArrowDropLeftLine} from 'react-icons/ri';
 import {useNavigate} from 'react-router-dom';
 
-import {Page as StyledPage} from '../elements/Page';
+import {Page, Header, BackButton, Title, Actionbar, Main} from './styles';
 
-const Page = styled(StyledPage)`
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-`;
-
-const Header = styled.header`
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-`;
-
-const BackButton = styled.button`
-  margin-right: 10px;
-  font-size: 30px;
-  display: inline-flex;
-  align-items: center;
-  border-radius: 20px;
-`;
-
-const Title = styled.h1``;
-
-const Actionbar = styled.div`
-  margin-left: auto;
-`;
-
-const Main = styled.main``;
-
-export function ContentLayout(
+export function Layout(
   /** @type {import('./types').ContentLayoutProps} */
   {title, actionElement, showBackButton, children, ...rest}
 ) {
