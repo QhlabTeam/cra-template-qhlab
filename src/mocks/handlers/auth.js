@@ -1,5 +1,5 @@
 import {faker} from '@faker-js/faker';
-import jwt from 'jsonwebtoken';
+import * as jose from 'jose';
 import {rest} from 'msw';
 import {nanoid} from 'nanoid';
 
@@ -9,7 +9,7 @@ import {db} from '../db';
 const JWT_SECRET = '123456';
 
 export const authHandlers = [
-  rest.post(`${env.API_URL}/api/auth/register`, (req, res, ctx) => {
+  rest.post(`${env.API_URL}/api/auth/register`, async (req, res, ctx) => {
     try {
       const {username, password} = req.body;
 
@@ -33,7 +33,7 @@ export const authHandlers = [
         password,
       });
       const {password: __omitPassword, ...userInfo} = user;
-      const token = jwt.sign(userInfo, JWT_SECRET);
+      const token = await new jose.SignJWT(userInfo).sign(JWT_SECRET);
 
       return res(ctx.delay(2000), ctx.json({userInfo, token}));
     } catch (error) {
@@ -47,7 +47,7 @@ export const authHandlers = [
     }
   }),
 
-  rest.post(`${env.API_URL}/api/auth/login`, (req, res, ctx) => {
+  rest.post(`${env.API_URL}/api/auth/login`, async (req, res, ctx) => {
     try {
       const {username, password} = req.body;
 
@@ -65,7 +65,7 @@ export const authHandlers = [
 
       // Sign
       const {password: __omitPassword, ...userInfo} = user;
-      const token = jwt.sign(userInfo, JWT_SECRET);
+      const token = await new jose.SignJWT(userInfo).sign(JWT_SECRET);
 
       return res(ctx.delay(2000), ctx.json({userInfo, token}));
     } catch (error) {
