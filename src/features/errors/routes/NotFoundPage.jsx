@@ -9,6 +9,7 @@ const ReturnLink = styled(Link)`
   border-radius: 4px;
   font-size: 14px;
   margin-top: 8px;
+  text-decoration: underline;
 `;
 
 export function NotFoundPage() {
@@ -19,9 +20,7 @@ export function NotFoundPage() {
     >
       <h1>Not Found</h1>
 
-      <ReturnLink replace to='/'>
-        Return Home
-      </ReturnLink>
+      <ReturnLink to='/'>Return Home</ReturnLink>
     </Page>
   );
 }
