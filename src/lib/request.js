@@ -1,23 +1,33 @@
 import axios from 'axios';
 
-export const request = axios.create();
+import {env} from '../constants/env';
+import {storage} from '../utils/storage';
 
-request.interceptors.request.use(
-  (config) => {
-    return config;
-  },
-  (error) => {
-    return Promise.reject(error);
+function authRequestInterceptor(config) {
+  const token = storage.getToken();
+  if (token) {
+    config.headers.authorization = `${token}`;
   }
-);
+  return config;
+}
 
+// Create axios instance as request
+export const request = axios.create({baseURL: env.API_URL});
+
+// Register default interceptors
+request.interceptors.request.use(authRequestInterceptor);
 request.interceptors.response.use(
-  (config) => {
-    return config.data;
+  (response) => {
+    return response.data;
   },
   (error) => {
-    /** @type {import('axios').AxiosResponse} */
-    const {data, status} = error.response;
+    const {data, status} = /** @type {import('axios').AxiosResponse} */ (
+      error.response
+    );
+
+    // Toast data's error message if you are using ui library.
+    const message = data?.message || error.message;
+    console.error(message);
 
     if (status === 401) {
       // 1. get url as prevUrl
@@ -25,9 +35,6 @@ request.interceptors.response.use(
       // 3. redirect to login page if current page isn't "/login"
       // 4. redirect to prevUrl when login succeed
     }
-
-    // Toast data's error message if you are using ui library.
-    if (data.message) console.error(data.message);
     return Promise.reject(error);
   }
 );

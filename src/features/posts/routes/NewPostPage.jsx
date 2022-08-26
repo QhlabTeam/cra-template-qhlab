@@ -1,7 +1,7 @@
 import {Layout} from '../components/Layout';
 import {PostForm} from '../components/PostForm';
 
-export function PostFormPage() {
+export function NewPostPage() {
   return (
     <Layout showBackButton title='New Post'>
       <PostForm />

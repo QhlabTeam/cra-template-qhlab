@@ -18,6 +18,7 @@ const models = {
     id: primaryKey(Number),
     username: String,
     avatar: String,
+    password: String,
   },
 };
 
