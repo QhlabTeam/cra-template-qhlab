@@ -1,15 +1,15 @@
 import {Route, Routes} from 'react-router-dom';
 
-import {NotFoundPage} from './pages/errors/NotFoundPage';
-import {PostDetailPage} from './pages/PostDetailPage';
-import {PostFormPage} from './pages/PostFormPage';
-import {PostsPage} from './pages/PostsPage';
-import {WelcomePage} from './pages/WelcomePage';
+import {NotFoundPage} from './features/errors/routes/NotFoundPage';
+import {IntroPage} from './features/intro/routes/IntroPage';
+import {PostDetailPage} from './features/posts/routes/PostDetailPage';
+import {PostFormPage} from './features/posts/routes/PostFormPage';
+import {PostsPage} from './features/posts/routes/PostsPage';
 
 export function AppRoutes() {
   return (
     <Routes>
-      <Route index element={<WelcomePage />} />
+      <Route index element={<IntroPage />} />
       <Route element={<PostsPage />} path='/posts' />
       <Route element={<PostFormPage />} path='/posts/new' />
       <Route element={<PostDetailPage />} path='/posts/:id' />
