@@ -1,6 +1,9 @@
 import styled from '@emotion/styled';
 import {useReducer} from 'react';
 
+import {login} from '../api/login';
+import {register} from '../api/register';
+
 const Container = styled.div`
   width: 100%;
   max-width: 450px;
@@ -107,16 +110,33 @@ function formReducer(state, action) {
   }
 }
 
+// new jose.EncryptJWT({'urn:example:claim': true})
+//   .setProtectedHeader({alg: 'dir', enc: 'A256GCM'})
+//   .setIssuedAt()
+//   .setIssuer('urn:example:issuer')
+//   .setAudience('urn:example:audience')
+//   .setExpirationTime('2h')
+//   .encrypt(crypto)
+//   .then(console.log);
+
 export function LoginForm({onSuccess}) {
   const [state, dispatch] = useReducer(formReducer, initial);
   const {name, password, errors, isLoading} = state;
 
-  function handleSubmit() {
+  function handleLogin() {
     dispatch({type: ActionTypes.SUBMIT});
+    login({username: name, password})
+      .then(() => {})
+      .finally(() => dispatch({type: ActionTypes.CLEAR}));
   }
 
   function handleSignup() {
     dispatch({type: ActionTypes.CLEAR});
+    register({username: name, password})
+      .then((data) => {
+        console.log(data);
+      })
+      .finally(() => dispatch({type: ActionTypes.CLEAR}));
   }
 
   return (
@@ -125,7 +145,7 @@ export function LoginForm({onSuccess}) {
         spellCheck='false'
         onSubmit={(ev) => {
           ev.preventDefault();
-          handleSubmit();
+          handleLogin();
         }}
       >
         <Title>Log in</Title>
