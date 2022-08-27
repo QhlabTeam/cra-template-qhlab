@@ -1,31 +1,15 @@
 import {css, Global} from '@emotion/react';
-import {normalize} from 'polished';
 
 import {theme} from './constants/theme';
 import {isElectron} from './lib/isElectron';
 
+import 'sanitize.css';
+import 'sanitize.css/forms.css';
+import 'sanitize.css/typography.css';
+import 'sanitize.css/assets.css';
+
 // override basic style
 const rebase = css`
-  ${normalize()}
-
-  html {
-    line-height: 1.4;
-    box-sizing: border-box;
-  }
-
-  body {
-    font-size: 16px;
-    font-family: PingFangSC, -apple-system, BlinkMacSystemFont, 'Segoe UI',
-      Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
-      sans-serif;
-  }
-
-  *,
-  *:before,
-  *:after {
-    box-sizing: inherit;
-  }
-
   h1,
   h2,
   h3,
@@ -69,6 +53,10 @@ const layout = css`
 const themeing = css`
   html,
   body {
+    font-size: 16px;
+    font-family: PingFangSC, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+      Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+      sans-serif;
     color: ${theme.colors.TEXT};
     background-color: ${theme.colors.BACKGROUND};
   }

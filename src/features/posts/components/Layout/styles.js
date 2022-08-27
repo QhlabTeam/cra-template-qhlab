@@ -21,7 +21,8 @@ export const BackButton = styled.button`
   font-size: 30px;
   display: inline-flex;
   align-items: center;
-  border-radius: 20px;
+  border-radius: 40px;
+  background-color: rgba(0, 0, 0, 0.06);
 `;
 export const Title = styled.h1``;
 export const Actionbar = styled.div`

@@ -98,8 +98,10 @@ export const ListPagination = styled.div`
 `;
 
 export const ListPaginationButton = styled.button`
-  padding: 10px 20px;
+  padding: 14px 20px;
   border-radius: 8px;
   color: royalblue;
   background-color: ${rgba('royalblue', 0.1)};
+  display: inline-flex;
+  align-items: center;
 `;
