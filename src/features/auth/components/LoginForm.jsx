@@ -12,7 +12,8 @@ const Container = styled.div`
   background-color: white;
   padding: 40px 24px;
   border-radius: 12px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02);
+  box-shadow: 0 60px 20px -10px rgba(0, 0, 0, 0.04),
+    0 40px 80px 40px rgba(0, 0, 0, 0.08);
 `;
 
 const Form = styled.form`
@@ -91,7 +92,7 @@ function loginReducer(state, action) {
       };
     case ActionTypes.LOGIN:
       return {
-        ...initialState,
+        ...state,
         isLoading: true,
       };
     case ActionTypes.SUCCESS:

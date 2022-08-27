@@ -1,13 +1,30 @@
 import {RiArrowDropLeftLine} from 'react-icons/ri';
 import {useNavigate} from 'react-router-dom';
 
-import {Page, Header, BackButton, Title, Actionbar, Main} from './styles';
+import {useAuth} from '../../../../hooks/useAuth';
+import {
+  Page,
+  Header,
+  BackButton,
+  Title,
+  Actionbar,
+  Main,
+  Avatar,
+  UserButton,
+} from './styles';
 
 export function Layout(
   /** @type {import('./types').ContentLayoutProps} */
-  {title, actionElement, showBackButton, children, ...rest}
+  {title, actionElement, showBackButton, children, showUser, ...rest}
 ) {
   const navigate = useNavigate();
+  const {userInfo, navigateLogin} = useAuth();
+
+  function handleClickUser() {
+    if (!userInfo) {
+      navigateLogin();
+    }
+  }
 
   return (
     <Page
@@ -24,6 +41,12 @@ export function Layout(
         {title && <Title>{title}</Title>}
 
         {actionElement && <Actionbar>{actionElement}</Actionbar>}
+
+        {showUser && (
+          <UserButton onClick={handleClickUser}>
+            <Avatar src={userInfo?.avatar} />
+          </UserButton>
+        )}
       </Header>
 
       <Main>{children}</Main>

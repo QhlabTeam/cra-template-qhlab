@@ -8,6 +8,7 @@ import {AddButton} from './styles';
 export function PostsPage() {
   return (
     <Layout
+      showUser
       actionElement={
         <AddButton as={Link} to='/posts/new'>
           <RiAddLine size={20} />
