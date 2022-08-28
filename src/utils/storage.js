@@ -1,32 +1,30 @@
-import {env} from '../constants/env';
+import {ENV} from '../constants/env';
 
 export const storage = {
   getToken() {
-    return JSON.parse(
-      window.localStorage.getItem(`${env.STORAGE_PREFIX}token`)
-    );
+    return JSON.parse(window.localStorage.getItem(`${ENV.storagePrefix}token`));
   },
   setToken(token) {
     window.localStorage.setItem(
-      `${env.STORAGE_PREFIX}token`,
+      `${ENV.storagePrefix}token`,
       JSON.stringify(token)
     );
   },
   clearToken() {
-    window.localStorage.removeItem(`${env.STORAGE_PREFIX}token`);
+    window.localStorage.removeItem(`${ENV.storagePrefix}token`);
   },
   getUserInfo() {
     return JSON.parse(
-      window.localStorage.getItem(`${env.STORAGE_PREFIX}userInfo`)
+      window.localStorage.getItem(`${ENV.storagePrefix}userInfo`)
     );
   },
   setUserInfo(UserInfo) {
     window.localStorage.setItem(
-      `${env.STORAGE_PREFIX}userInfo`,
+      `${ENV.storagePrefix}userInfo`,
       JSON.stringify(UserInfo)
     );
   },
   clearUserInfo() {
-    window.localStorage.removeItem(`${env.STORAGE_PREFIX}userInfo`);
+    window.localStorage.removeItem(`${ENV.storagePrefix}userInfo`);
   },
 };

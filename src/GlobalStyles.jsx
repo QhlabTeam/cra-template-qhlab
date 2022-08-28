@@ -1,6 +1,6 @@
 import {css, Global} from '@emotion/react';
 
-import {theme} from './constants/theme';
+import {THEME} from './constants/theme';
 import {isElectron} from './lib/isElectron';
 
 import 'sanitize.css';
@@ -57,8 +57,8 @@ const themeing = css`
     font-family: PingFangSC, -apple-system, BlinkMacSystemFont, 'Segoe UI',
       Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
       sans-serif;
-    color: ${theme.colors.TEXT};
-    background-color: ${theme.colors.BACKGROUND};
+    color: ${THEME.colors.text};
+    background-color: ${THEME.colors.background};
   }
 
   ::-webkit-scrollbar,

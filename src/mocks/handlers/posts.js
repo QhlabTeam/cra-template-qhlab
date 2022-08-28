@@ -2,11 +2,11 @@ import {faker} from '@faker-js/faker';
 import {rest} from 'msw';
 import {nanoid} from 'nanoid';
 
-import {env} from '../../constants/env';
+import {ENV} from '../../constants/env';
 import {db} from '../db';
 
 export const postsHandlers = [
-  rest.get(`${env.API_URL}/api/posts`, (req, res, ctx) => {
+  rest.get(`${ENV.apiUrl}/api/posts`, (req, res, ctx) => {
     const limit = req.url.searchParams.get('_limit') || 9;
     const page = req.url.searchParams.get('_page') || 1;
 
@@ -20,7 +20,7 @@ export const postsHandlers = [
     return res(ctx.delay(), ctx.json(result));
   }),
 
-  rest.post(`${env.API_URL}/api/posts`, (req, res, ctx) => {
+  rest.post(`${ENV.apiUrl}/api/posts`, (req, res, ctx) => {
     const {title, body} = req.body;
 
     const user = db.user.findFirst({});
@@ -37,7 +37,7 @@ export const postsHandlers = [
     return res(ctx.status(200), ctx.delay(2000));
   }),
 
-  rest.get(`${env.API_URL}/api/posts/:postId`, (req, res, ctx) => {
+  rest.get(`${ENV.apiUrl}/api/posts/:postId`, (req, res, ctx) => {
     const {postId} = req.params;
     const result = db.post.findFirst({
       where: {

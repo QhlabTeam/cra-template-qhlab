@@ -1,9 +1,9 @@
 import {rgba} from 'polished';
 
 const colors = {
-  PRIMARY: '#415EC9',
-  TEXT: '#000D1A',
-  BACKGROUND: '#F6F7F8',
+  primary: '#415EC9',
+  text: '#000D1A',
+  background: '#F6F7F8',
   get blacks() {
     const base = '#000D1A';
     return {
@@ -38,6 +38,6 @@ const colors = {
   },
 };
 
-export const theme = {
+export const THEME = {
   colors,
 };

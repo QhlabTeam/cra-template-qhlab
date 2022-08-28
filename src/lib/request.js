@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import {env} from '../constants/env';
+import {ENV} from '../constants/env';
 import {storage} from '../utils/storage';
 import {history} from './history';
 
@@ -13,7 +13,7 @@ function authRequestInterceptor(config) {
 }
 
 // Create axios instance as request
-export const request = axios.create({baseURL: env.API_URL});
+export const request = axios.create({baseURL: ENV.apiUrl});
 
 // Register default interceptors
 request.interceptors.request.use(authRequestInterceptor);

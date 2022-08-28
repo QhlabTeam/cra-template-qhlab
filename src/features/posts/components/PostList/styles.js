@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import {rgba, size} from 'polished';
 
 import {Image} from '../../../../components/elements/Image';
+import {MEDIA} from '../../../../constants/media';
 
 export const Header = styled.header`
   display: flex;
@@ -32,10 +33,18 @@ export const Container = styled.section`
 `;
 
 export const List = styled.div`
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   margin-bottom: 20px;
+
+  ${MEDIA.md} {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  ${MEDIA.sm} {
+    grid-template-columns: 1fr;
+  }
 `;
 
 export const ListItem = styled.li`
