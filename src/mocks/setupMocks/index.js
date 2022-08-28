@@ -1,7 +1,7 @@
-import {env} from '../../constants/env';
+import {ENV} from '../../constants/env';
 
 export function setupMocks() {
-  if (env.ENABLE_MSW) {
+  if (ENV.enableMSW) {
     const {worker} = require('./browser');
     worker.start();
   }

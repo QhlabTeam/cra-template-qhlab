@@ -1,33 +1,49 @@
 import axios from 'axios';
 
-export const request = axios.create();
+import {useNotifications} from '../components/Notifications';
+import {ENV} from '../constants/env';
+import {storage} from '../utils/storage';
+import {history} from './history';
 
-request.interceptors.request.use(
-  (config) => {
-    return config;
-  },
-  (error) => {
-    return Promise.reject(error);
+function authRequestInterceptor(config) {
+  const token = storage.getToken();
+  if (token) {
+    config.headers.authorization = `${token}`;
   }
-);
+  return config;
+}
 
+// Create axios instance as request
+export const request = axios.create({baseURL: ENV.apiUrl});
+
+// Register default interceptors
+request.interceptors.request.use(authRequestInterceptor);
 request.interceptors.response.use(
-  (config) => {
-    return config.data;
+  (response) => {
+    return response.data;
   },
   (error) => {
-    /** @type {import('axios').AxiosResponse} */
-    const {data, status} = error.response;
+    const {data, status} = /** @type {import('axios').AxiosResponse} */ (
+      error.response
+    );
+
+    // Toast data's error message if you are using ui library.
+    const message = data?.message || error.message;
+    useNotifications().show({
+      title: 'Response Error',
+      message,
+    });
 
     if (status === 401) {
       // 1. get url as prevUrl
       // 2. clean token
       // 3. redirect to login page if current page isn't "/login"
       // 4. redirect to prevUrl when login succeed
+      const redirectLocation = history.location;
+      storage.clearToken();
+      storage.clearUserInfo();
+      history.replace('/auth/login', redirectLocation);
     }
-
-    // Toast data's error message if you are using ui library.
-    if (data.message) console.error(data.message);
     return Promise.reject(error);
   }
 );

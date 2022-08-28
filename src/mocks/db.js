@@ -4,6 +4,7 @@ import {factory, nullable, oneOf, primaryKey} from '@mswjs/data';
 import {nanoid} from 'nanoid';
 
 import {genArray} from '../utils/genArray';
+import {storage} from '../utils/storage';
 
 const models = {
   post: {
@@ -18,6 +19,7 @@ const models = {
     id: primaryKey(Number),
     username: String,
     avatar: String,
+    password: String,
   },
 };
 
@@ -31,6 +33,14 @@ const users = genArray(12).map(() =>
     avatar: faker.image.avatar(),
   })
 );
+
+const persistedUser = storage.getUserInfo();
+if (persistedUser) {
+  const pUser = db.user.create({
+    ...persistedUser,
+  });
+  users.unshift(pUser);
+}
 
 // Posts
 const posts = users.map((user) =>

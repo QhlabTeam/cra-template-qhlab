@@ -4,7 +4,7 @@ import useSWR from 'swr';
 export function useGetPosts({query} = {}) {
   return useSWR(
     stringifyUrl({
-      url: '/posts',
+      url: '/api/posts',
       query,
     })
   );

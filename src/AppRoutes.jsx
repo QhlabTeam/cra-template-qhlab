@@ -1,18 +1,16 @@
 import {Route, Routes} from 'react-router-dom';
 
-import {NotFoundPage} from './pages/errors/NotFoundPage';
-import {PostDetailPage} from './pages/PostDetailPage';
-import {PostFormPage} from './pages/PostFormPage';
-import {PostsPage} from './pages/PostsPage';
-import {WelcomePage} from './pages/WelcomePage';
+import {LoginPage} from './features/auth/routes/LoginPage';
+import {NotFoundPage} from './features/errors/routes/NotFoundPage';
+import {IntroPage} from './features/intro/routes/IntroPage';
+import {PostsRoutes} from './features/posts/routes';
 
 export function AppRoutes() {
   return (
     <Routes>
-      <Route index element={<WelcomePage />} />
-      <Route element={<PostsPage />} path='/posts' />
-      <Route element={<PostFormPage />} path='/posts/new' />
-      <Route element={<PostDetailPage />} path='/posts/:id' />
+      <Route index element={<IntroPage />} />
+      <Route element={<LoginPage />} path='auth/login' />
+      <Route element={<PostsRoutes />} path='/posts/*' />
       <Route element={<NotFoundPage />} path='*' />
     </Routes>
   );
