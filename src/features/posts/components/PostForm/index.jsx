@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useEffect, useRef, useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 
 import {createPost} from '../../api/createPost';
@@ -9,8 +9,15 @@ export function PostForm() {
   const [content, setContent] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+  const hasUnmounted = useRef(false);
 
   const valid = title.trim() && content.trim();
+
+  useEffect(() => {
+    return () => {
+      hasUnmounted.current = true;
+    };
+  }, []);
 
   function handleSubmit(ev) {
     ev.preventDefault();
@@ -18,7 +25,9 @@ export function PostForm() {
     setIsLoading(true);
     createPost({title, body: content})
       .finally(() => {
-        setIsLoading(false);
+        if (!hasUnmounted.current) {
+          setIsLoading(false);
+        }
       })
       .then(() => {
         navigate(-1);

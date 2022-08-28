@@ -4,12 +4,10 @@ import {rest} from 'msw';
 import {nanoid} from 'nanoid';
 
 import {ENV} from '../../constants/env';
+import {JWT_SECRET} from '../constants';
 import {db} from '../db';
 
-const JWT_SECRET = '123456';
-
 const invalidUsername = (username) => /\s/.test(username);
-
 const invalidPassword = (password) => /\s/.test(password);
 
 export const authHandlers = [
