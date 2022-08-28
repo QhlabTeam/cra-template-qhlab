@@ -6,7 +6,7 @@ import {setupMocks} from './mocks/setupMocks';
 import reportWebVitals from './reportWebVitals';
 
 // If you want to enable msw mocks, pass an env:
-// REACT_APP_ENABLE_MSW=true when you start the app
+// REACT_APP_ENABLE_MSW=true when you start the app (development only)
 setupMocks();
 
 ReactDOM.render(
