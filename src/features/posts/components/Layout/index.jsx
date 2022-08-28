@@ -21,9 +21,7 @@ export function Layout(
   const {userInfo, navigateLogin} = useAuth();
 
   function handleClickUser() {
-    if (!userInfo) {
-      navigateLogin();
-    }
+    navigateLogin();
   }
 
   return (

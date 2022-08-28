@@ -8,12 +8,10 @@ export function useAuth() {
   const token = storage.getToken();
   const userInfo = storage.getUserInfo();
 
-  function navigateLogin(redirect) {
-    if (redirect) {
-      navigate(`/auth/login?redirect=${redirect}`);
-    } else {
-      navigate('/auth/login');
-    }
+  function navigateLogin(redirectLocation) {
+    navigate('/auth/login', {
+      state: redirectLocation,
+    });
   }
 
   return {

@@ -2,6 +2,7 @@ import axios from 'axios';
 
 import {env} from '../constants/env';
 import {storage} from '../utils/storage';
+import {history} from './history';
 
 function authRequestInterceptor(config) {
   const token = storage.getToken();
@@ -34,6 +35,10 @@ request.interceptors.response.use(
       // 2. clean token
       // 3. redirect to login page if current page isn't "/login"
       // 4. redirect to prevUrl when login succeed
+      const redirectLocation = history.location;
+      storage.clearToken();
+      storage.clearUserInfo();
+      history.replace('/auth/login', redirectLocation);
     }
     return Promise.reject(error);
   }

@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import {useNavigate, useSearchParams} from 'react-router-dom';
+import {useLocation, useNavigate, useSearchParams} from 'react-router-dom';
 
 import {Page as StyledPage} from '../../../components/elements/Page';
 import {LoginForm} from '../components/LoginForm';
@@ -16,12 +16,14 @@ const Page = styled(StyledPage)`
 export function LoginPage() {
   const [search] = useSearchParams();
   const navigate = useNavigate();
-
+  const {state: redirectLocation} = useLocation();
   const redirect = search.get('redirect');
 
   return (
     <Page className='LoginPage'>
-      <LoginForm onSuccess={() => navigate(redirect ?? '/posts')} />
+      <LoginForm
+        onSuccess={() => navigate(redirectLocation ?? redirect ?? '/posts')}
+      />
     </Page>
   );
 }

@@ -1,6 +1,9 @@
 import styled from '@emotion/styled';
+import {size} from 'polished';
 import {useReducer} from 'react';
 
+import {Image} from '../../../components/elements/Image';
+import {useAuth} from '../../../hooks/useAuth';
 import {storage} from '../../../utils/storage';
 import {login} from '../api/login';
 import {register} from '../api/register';
@@ -65,14 +68,23 @@ const ErrorMessage = styled.p`
   font-size: 14px;
 `;
 
+const Avatar = styled(Image)`
+  ${size(80)}
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+`;
+
 const ActionTypes = {
   FIELD: 'FIELD',
   ERROR: 'ERROR',
   LOGIN: 'LOGIN',
+  LOGOUT: 'LOGOUT',
   SUCCESS: 'SUCCESS',
 };
 
 const initialState = {
+  hasLogged: false,
   username: '',
   password: '',
   error: '',
@@ -95,9 +107,15 @@ function loginReducer(state, action) {
         ...state,
         isLoading: true,
       };
+    case ActionTypes.LOGOUT:
+      return {
+        ...initialState,
+        hasLogged: false,
+      };
     case ActionTypes.SUCCESS:
       return {
         ...initialState,
+        hasLogged: true,
       };
     default:
       return state;
@@ -105,14 +123,22 @@ function loginReducer(state, action) {
 }
 
 export function LoginForm({onSuccess}) {
-  const [state, dispatch] = useReducer(loginReducer, initialState);
+  const [state, dispatch] = useReducer(
+    loginReducer,
+    initialState,
+    (initial) => ({
+      ...initial,
+      hasLogged: !!storage.getToken(),
+    })
+  );
   const {username, password, error, isLoading} = state;
+  const {userInfo: loggedUserInfo} = useAuth();
 
-  async function auth(method) {
+  async function req(apiMethod) {
     dispatch({type: ActionTypes.LOGIN});
 
     try {
-      const {userInfo, token} = await method({username, password});
+      const {userInfo, token} = await apiMethod({username, password});
       dispatch({type: ActionTypes.SUCCESS});
       storage.setToken(token);
       storage.setUserInfo(userInfo);
@@ -123,12 +149,38 @@ export function LoginForm({onSuccess}) {
   }
 
   function handleLogin() {
-    auth(login);
+    req(login);
   }
 
   function handleSignup() {
-    auth(register);
+    req(register);
   }
+
+  function handleLogout() {
+    storage.clearToken();
+    storage.clearUserInfo();
+    dispatch({type: ActionTypes.LOGOUT});
+  }
+
+  const logged = state.hasLogged && loggedUserInfo && (
+    <Container>
+      <Title>Hi, {loggedUserInfo.username}</Title>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          margin: 30,
+        }}
+      >
+        <Avatar src={loggedUserInfo.avatar} />
+      </div>
+      <LoginButton disabled={isLoading} type='button' onClick={handleLogout}>
+        Logout
+      </LoginButton>
+    </Container>
+  );
+
+  if (logged) return logged;
 
   return (
     <Container>
