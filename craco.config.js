@@ -17,6 +17,7 @@ module.exports = {
         crypto: require.resolve('crypto-browserify'),
         stream: require.resolve('stream-browserify'),
         buffer: require.resolve('buffer'),
+        'process/browser': require.resolve('process/browser'),
       };
 
       // Fix buffer not defined
