@@ -20,14 +20,21 @@ module.exports = {
         'process/browser': require.resolve('process/browser'),
       };
 
-      // Fix buffer not defined
-      // https://stackoverflow.com/questions/68707553/uncaught-referenceerror-buffer-is-not-defined
       config.plugins = [
         ...config.plugins,
+        // Fix buffer not defined
+        // https://stackoverflow.com/questions/68707553/uncaught-referenceerror-buffer-is-not-defined
         new webpack.ProvidePlugin({
           process: 'process/browser',
           Buffer: ['buffer', 'Buffer'],
         }),
+        // Fix tree shaking problem
+        // https://github.com/facebook/create-react-app/issues/9674#issuecomment-1096270248
+        // new webpack.DefinePlugin({
+        //   ...(!process.env.REACT_APP_ENABLE_MSW && {
+        //     'process.env.REACT_APP_ENABLE_MSW': false,
+        //   }),
+        // }),
       ];
 
       return config;
