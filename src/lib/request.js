@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+import {useNotifications} from '../components/Notifications';
 import {ENV} from '../constants/env';
 import {storage} from '../utils/storage';
 import {history} from './history';
@@ -28,7 +29,10 @@ request.interceptors.response.use(
 
     // Toast data's error message if you are using ui library.
     const message = data?.message || error.message;
-    console.error(message);
+    useNotifications().show({
+      title: 'Response Error',
+      message,
+    });
 
     if (status === 401) {
       // 1. get url as prevUrl
