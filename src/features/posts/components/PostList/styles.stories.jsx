@@ -1,7 +1,7 @@
 import {RiArrowLeftLine, RiArrowRightLine} from 'react-icons/ri';
 import {Link} from 'react-router-dom';
 
-import {Image} from '../../../../components/elements/Image';
+import {Image} from '../../../../components/Image';
 import {db} from '../../../../mocks/db';
 import {
   ListItem,

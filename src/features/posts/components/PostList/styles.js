@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import {rgba, size} from 'polished';
 
-import {Image} from '../../../../components/elements/Image';
+import {Image} from '../../../../components/Image';
 import {MEDIA} from '../../../../constants/media';
 
 export const Header = styled.header`

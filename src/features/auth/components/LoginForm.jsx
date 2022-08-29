@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import {size} from 'polished';
 import {useReducer} from 'react';
 
-import {Image} from '../../../components/elements/Image';
+import {Image} from '../../../components/Image';
 import {useAuth} from '../../../hooks/useAuth';
 import {storage} from '../../../utils/storage';
 import {login} from '../api/login';

@@ -2,9 +2,9 @@ import styled from '@emotion/styled';
 import {RiExternalLinkLine} from 'react-icons/ri';
 
 import {images} from '../../../assets';
-import {Image} from '../../../components/elements/Image';
-import {Logo} from '../../../components/elements/Logo';
-import {Page} from '../../../components/layout/Page';
+import {Image} from '../../../components/Image';
+import {Logo} from '../../../components/Logo';
+import {Page} from '../../../components/Page';
 import {Intro} from '../components/Intro';
 
 const ExternalLink = styled.a({

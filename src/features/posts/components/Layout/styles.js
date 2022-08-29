@@ -2,8 +2,8 @@ import styled from '@emotion/styled';
 import {size} from 'polished';
 
 import {images} from '../../../../assets';
-import {Image} from '../../../../components/elements/Image';
-import {Page as StyledPage} from '../../../../components/layout/Page';
+import {Image} from '../../../../components/Image';
+import {Page as StyledPage} from '../../../../components/Page';
 
 export const Page = styled(StyledPage)`
   width: 100%;
