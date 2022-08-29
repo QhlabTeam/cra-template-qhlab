@@ -78,7 +78,7 @@ const themeing = css`
 
 // electron only
 const electron = css`
-  /* 绘制顶部拖拽区域 */
+  /* Draw a draggable area */
   body::before {
     content: '';
     display: block;
