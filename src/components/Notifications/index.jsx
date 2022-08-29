@@ -2,8 +2,8 @@ import styled from '@emotion/styled';
 import {nanoid} from 'nanoid';
 import {useState} from 'react';
 
+import {Portal} from '../Portal';
 import {Notification} from './Notification';
-import {Portal} from './Portal';
 
 const Container = styled.div`
   position: fixed;

@@ -1,5 +1,5 @@
-import {images} from '../../assets';
-import {Image} from './Image';
+import {Image} from '.';
+import {images} from '../../../assets';
 
 /** @type {import('@storybook/react').Meta} */
 export default {
