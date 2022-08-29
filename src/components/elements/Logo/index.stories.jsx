@@ -1,6 +1,6 @@
-import * as ImageStories from './Image.stories';
-import ImageStoriesDefault from './Image.stories';
-import {Logo} from './Logo';
+import {Logo} from '.';
+import * as ImageStories from '../Image/index.stories';
+import ImageStoriesDefault from '../Image/index.stories';
 
 /** @type {import('@storybook/react').Meta} */
 export default {
