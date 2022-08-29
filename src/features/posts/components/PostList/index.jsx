@@ -2,7 +2,7 @@ import {useState} from 'react';
 import {RiArrowLeftLine, RiArrowRightLine} from 'react-icons/ri';
 import {Link} from 'react-router-dom';
 
-import {Image} from '../../../../components/elements/Image';
+import {Image} from '../../../../components/Image';
 import {useGetPosts} from '../../api/useGetPosts';
 import {
   List,

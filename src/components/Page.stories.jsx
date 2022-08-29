@@ -1,7 +1,7 @@
 import {expect} from '@storybook/jest';
 import {screen} from '@storybook/testing-library';
 
-import {Page} from '.';
+import {Page} from './Page';
 
 /** @type {import('@storybook/csf').StoryContext} */
 export default {
