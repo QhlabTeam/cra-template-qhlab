@@ -75,12 +75,12 @@ const Avatar = styled(Image)`
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 `;
 
-const ActionTypes = {
-  FIELD: 'FIELD',
-  ERROR: 'ERROR',
-  LOGIN: 'LOGIN',
-  LOGOUT: 'LOGOUT',
-  SUCCESS: 'SUCCESS',
+const TYPES = {
+  field: 'field',
+  error: 'error',
+  login: 'login',
+  logout: 'logout',
+  success: 'success',
 };
 
 const initialState = {
@@ -93,26 +93,24 @@ const initialState = {
 
 function loginReducer(state, action) {
   switch (action.type) {
-    case ActionTypes.FIELD:
+    case TYPES.field:
       return {...state, [action.field]: action.payload};
-    case ActionTypes.CLEAR:
-      return initialState;
-    case ActionTypes.ERROR:
+    case TYPES.error:
       return {
         ...initialState,
         error: action.payload ?? 'Invalid username or password',
       };
-    case ActionTypes.LOGIN:
+    case TYPES.login:
       return {
         ...state,
         isLoading: true,
       };
-    case ActionTypes.LOGOUT:
+    case TYPES.logout:
       return {
         ...initialState,
         hasLogged: false,
       };
-    case ActionTypes.SUCCESS:
+    case TYPES.success:
       return {
         ...initialState,
         hasLogged: true,
@@ -135,16 +133,16 @@ export function LoginForm({onSuccess}) {
   const {userInfo: loggedUserInfo} = useAuth();
 
   async function req(apiMethod) {
-    dispatch({type: ActionTypes.LOGIN});
+    dispatch({type: TYPES.login});
 
     try {
       const {userInfo, token} = await apiMethod({username, password});
-      dispatch({type: ActionTypes.SUCCESS});
+      dispatch({type: TYPES.success});
       storage.setToken(token);
       storage.setUserInfo(userInfo);
       if (onSuccess) onSuccess({userInfo, token});
     } catch (e) {
-      dispatch({type: ActionTypes.ERROR, payload: e.response.data?.message});
+      dispatch({type: TYPES.error, payload: e.response.data?.message});
     }
   }
 
@@ -159,7 +157,7 @@ export function LoginForm({onSuccess}) {
   function handleLogout() {
     storage.clearToken();
     storage.clearUserInfo();
-    dispatch({type: ActionTypes.LOGOUT});
+    dispatch({type: TYPES.logout});
   }
 
   const logged = state.hasLogged && loggedUserInfo && (
@@ -202,7 +200,7 @@ export function LoginForm({onSuccess}) {
             value={username}
             onChange={(ev) =>
               dispatch({
-                type: ActionTypes.FIELD,
+                type: TYPES.field,
                 field: 'username',
                 payload: ev.target.value,
               })
@@ -218,7 +216,7 @@ export function LoginForm({onSuccess}) {
             value={password}
             onChange={(ev) =>
               dispatch({
-                type: ActionTypes.FIELD,
+                type: TYPES.field,
                 field: 'password',
                 payload: ev.target.value,
               })
