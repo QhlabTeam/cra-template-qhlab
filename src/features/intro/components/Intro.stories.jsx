@@ -1,4 +1,4 @@
-import {Page} from '../../../components/elements/Page';
+import {Page} from '../../../components/layout/Page';
 import {Intro} from './Intro';
 
 /** @type {import('@storybook/react').Meta} */

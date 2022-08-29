@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import {Link} from 'react-router-dom';
 
-import {Page} from '../../../components/elements/Page';
+import {Page} from '../../../components/layout/Page';
 
 const ReturnLink = styled(Link)`
   background-color: whitesmoke;

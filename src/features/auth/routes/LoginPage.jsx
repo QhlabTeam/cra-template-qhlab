@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import {useLocation, useNavigate, useSearchParams} from 'react-router-dom';
 
-import {Page as StyledPage} from '../../../components/elements/Page';
+import {Page as StyledPage} from '../../../components/layout/Page';
 import {LoginForm} from '../components/LoginForm';
 
 const Page = styled(StyledPage)`
