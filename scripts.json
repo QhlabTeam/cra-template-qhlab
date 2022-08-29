@@ -1,9 +1,15 @@
 {
   "$schema": "https://raw.githubusercontent.com/iamyoki/better-scripts/main/lib/schema.json",
-  "dev": {
-    "alias": "🌟 Dev",
-    "desc": "Start a development server",
-    "command": "craco start"
+  "devs": {
+    "alias": "🌟 Devs",
+    "desc": "Devs scripts",
+    "scripts": {
+      "dev": ["craco start", "Start a development server"],
+      "mock": [
+        "cross-env REACT_APP_ENABLE_MSW=true craco start",
+        "Start a development server with mock"
+      ]
+    }
   },
   "storybook": {
     "alias": "📚 Storybook",
@@ -14,20 +20,6 @@
         "Start storybook development"
       ],
       "build": ["start-storybook -p 6006 -s public", "Build storybook"]
-    }
-  },
-  "mocks": {
-    "alias": "🤡 Mocks",
-    "desc": "Mock scripts",
-    "scripts": {
-      "dev": [
-        "REACT_APP_ENABLE_MSW=true craco start",
-        "Start dev with mock server"
-      ],
-      "build": [
-        "REACT_APP_ENABLE_MSW=true craco build",
-        "Create a build with mocked data"
-      ]
     }
   },
   "build": {
