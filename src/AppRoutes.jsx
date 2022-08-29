@@ -1,5 +1,4 @@
-/* eslint-disable no-shadow */
-import React, {Suspense} from 'react';
+import {Suspense} from 'react';
 import {Route, Routes} from 'react-router-dom';
 
 import {lazyImport} from './utils/lazyImport';
@@ -8,15 +7,15 @@ const LoginPage = lazyImport(
   () => import('./features/auth/routes/LoginPage'),
   'LoginPage'
 );
-const NotFoundPage = React.lazy(
+const NotFoundPage = lazyImport(
   () => import('./features/errors/routes/NotFoundPage'),
   'NotFoundPage'
 );
-const IntroPage = React.lazy(
+const IntroPage = lazyImport(
   () => import('./features/intro/routes/IntroPage'),
   'IntroPage'
 );
-const PostsRoutes = React.lazy(
+const PostsRoutes = lazyImport(
   () => import('./features/posts/routes'),
   'PostsRoutes'
 );
