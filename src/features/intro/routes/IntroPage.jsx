@@ -4,7 +4,7 @@ import {RiExternalLinkLine} from 'react-icons/ri';
 import {images} from '../../../assets';
 import {Image} from '../../../components/elements/Image';
 import {Logo} from '../../../components/elements/Logo';
-import {Page} from '../../../components/elements/Page';
+import {Page} from '../../../components/layout/Page';
 import {Intro} from '../components/Intro';
 
 const ExternalLink = styled.a({

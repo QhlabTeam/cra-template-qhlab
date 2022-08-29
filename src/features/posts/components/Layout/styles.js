@@ -3,7 +3,7 @@ import {size} from 'polished';
 
 import {images} from '../../../../assets';
 import {Image} from '../../../../components/elements/Image';
-import {Page as StyledPage} from '../../../../components/elements/Page';
+import {Page as StyledPage} from '../../../../components/layout/Page';
 
 export const Page = styled(StyledPage)`
   width: 100%;
