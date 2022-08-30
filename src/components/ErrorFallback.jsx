@@ -21,7 +21,9 @@ export function ErrorFallback({error, resetErrorBoundary}) {
   return (
     <Container>
       <GlobalStyles />
-      <pre>{error ? error.message : 'Ooops, something went wrong :('}</pre>
+      <pre>
+        {error ? `Error: ${error.message}` : 'Ooops, something went wrong :('}
+      </pre>
       <button onClick={resetErrorBoundary}>Retry</button>
       <button onClick={() => window.location.assign(window.location.origin)}>
         Refresh
