@@ -15,6 +15,7 @@ export function AppProviders({children}) {
   return (
     <SWRConfig value={{fetcher: request.get}}>
       <HistoryRouter history={history}>{children}</HistoryRouter>
+
       <GlobalStyles />
       <Notifications />
       <DevClickToComponent />
