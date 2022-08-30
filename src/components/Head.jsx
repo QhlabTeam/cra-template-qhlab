@@ -7,7 +7,9 @@ export function Head({title, children, ...rest}) {
   return (
     <Helmet {...rest}>
       <title>
-        {title ? `${title} | ${CONFIG.meta.baseTitle}` : CONFIG.meta.baseTitle}
+        {title
+          ? `${title} | ${CONFIG.helmet.baseTitle}`
+          : CONFIG.helmet.baseTitle}
       </title>
       {children}
     </Helmet>
