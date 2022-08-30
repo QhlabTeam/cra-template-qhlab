@@ -6,7 +6,7 @@ import {SWRConfig} from 'swr';
 
 import {GlobalStyles} from '../src/GlobalStyles';
 import {request} from '../src/lib/request';
-import {handlers} from '../src/mocks/handlers';
+import {handlers} from '../src/mock/handlers';
 
 export const parameters = {
   actions: {argTypesRegex: '^on[A-Z].*'},
