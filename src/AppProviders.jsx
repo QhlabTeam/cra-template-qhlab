@@ -1,3 +1,4 @@
+import {HelmetProvider} from 'react-helmet-async';
 import {unstable_HistoryRouter as HistoryRouter} from 'react-router-dom';
 import {SWRConfig} from 'swr';
 
@@ -13,12 +14,14 @@ const DevClickToComponent =
 
 export function AppProviders({children}) {
   return (
-    <SWRConfig value={{fetcher: request.get}}>
-      <HistoryRouter history={history}>{children}</HistoryRouter>
+    <HelmetProvider>
+      <SWRConfig value={{fetcher: request.get}}>
+        <HistoryRouter history={history}>{children}</HistoryRouter>
 
-      <GlobalStyles />
-      <Notifications />
-      <DevClickToComponent />
-    </SWRConfig>
+        <GlobalStyles />
+        <Notifications />
+        <DevClickToComponent />
+      </SWRConfig>
+    </HelmetProvider>
   );
 }

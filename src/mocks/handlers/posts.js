@@ -2,13 +2,13 @@ import {faker} from '@faker-js/faker';
 import {rest} from 'msw';
 import {nanoid} from 'nanoid';
 
-import {ENV} from '../../constants/env';
+import {CONFIG} from '../../constants/config';
 import {HTTP_ERRORS} from '../constants';
 import {db} from '../db';
 import {requireAuth} from '../utils';
 
 export const postsHandlers = [
-  rest.get(`${ENV.apiUrl}/api/posts`, (req, res, ctx) => {
+  rest.get(`${CONFIG.apiUrl}/api/posts`, (req, res, ctx) => {
     const limit = req.url.searchParams.get('_limit') || 9;
     const page = req.url.searchParams.get('_page') || 1;
 
@@ -22,7 +22,7 @@ export const postsHandlers = [
     return res(ctx.delay(), ctx.json(result));
   }),
 
-  rest.post(`${ENV.apiUrl}/api/posts`, (req, res, ctx) => {
+  rest.post(`${CONFIG.apiUrl}/api/posts`, (req, res, ctx) => {
     try {
       const user = requireAuth(req);
       const {title, body} = req.body;
@@ -51,7 +51,7 @@ export const postsHandlers = [
     }
   }),
 
-  rest.get(`${ENV.apiUrl}/api/posts/:postId`, (req, res, ctx) => {
+  rest.get(`${CONFIG.apiUrl}/api/posts/:postId`, (req, res, ctx) => {
     const {postId} = req.params;
     const result = db.post.findFirst({
       where: {
