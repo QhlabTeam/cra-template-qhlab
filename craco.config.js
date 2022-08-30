@@ -2,7 +2,17 @@ const webpack = require('webpack');
 
 module.exports = {
   babel: {
-    presets: ['@emotion/babel-preset-css-prop'],
+    presets: [
+      // Add React new JSX transformer and emotion plugin
+      // https://github.com/emotion-js/emotion/blob/main/docs/css-prop.mdx#babel-preset
+      [
+        '@babel/preset-react',
+        {
+          runtime: 'automatic',
+          importSource: '@emotion/react',
+        },
+      ],
+    ],
   },
   webpack: {
     /** @param {import('webpack').Configuration} config */
@@ -19,14 +29,13 @@ module.exports = {
         buffer: require.resolve('buffer'),
       };
 
-      config.plugins = [
-        ...config.plugins,
+      config.plugins.push(
         // Fix buffer not defined
         // https://stackoverflow.com/questions/68707553/uncaught-referenceerror-buffer-is-not-defined
         new webpack.ProvidePlugin({
           process: 'process/browser',
           Buffer: ['buffer', 'Buffer'],
-        }),
+        })
         // Fix tree shaking problem
         // https://github.com/facebook/create-react-app/issues/9674#issuecomment-1096270248
         // new webpack.DefinePlugin({
@@ -34,7 +43,7 @@ module.exports = {
         //     'process.env.REACT_APP_ENABLE_MSW': false,
         //   }),
         // }),
-      ];
+      );
 
       return config;
     },
