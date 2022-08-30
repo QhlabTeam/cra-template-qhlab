@@ -15,12 +15,14 @@ import {ListItem, ListPagination, ListPaginationButton} from './styles';
 
 export function PostList() {
   const [page, setPage] = useState(1);
-  const {data} = useGetPosts({
+  const {data, error} = useGetPosts({
     query: {
       _page: page,
       _limit: 9,
     },
   });
+
+  if (error) throw error;
 
   function handleClickNextPage() {
     setPage(page + 1);
