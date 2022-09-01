@@ -114,3 +114,5 @@ export const ListPaginationButton = styled.button`
   display: inline-flex;
   align-items: center;
 `;
+
+export const ListNoData = styled.div``;

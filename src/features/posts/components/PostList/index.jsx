@@ -10,6 +10,7 @@ import {
   ListItemHeader,
   ListItemAvatar,
   ListItemCover,
+  ListNoData,
 } from './styles';
 import {ListItem, ListPagination, ListPaginationButton} from './styles';
 
@@ -34,41 +35,47 @@ export function PostList() {
 
   return (
     <div className='PostList'>
-      <List>
-        {data.map((item) => (
-          <ListItem key={item.id}>
-            <ListItemHeader>
-              <Link to={`#${item.author.id}`}>
-                <ListItemAvatar src={item.author.avatar} />
-              </Link>
-              <ListItemAuthor>
-                <strong>{item.author.username}</strong>
-                <time>
-                  {new Date(item.createdAt)
-                    .toLocaleDateString()
-                    .replaceAll('/', '.')}{' '}
-                </time>
-              </ListItemAuthor>
-            </ListItemHeader>
-            <ListItemCover as={Link} to={`/posts/${item.id}`}>
-              <Image fit='cover' src={item.cover} />
-            </ListItemCover>
-          </ListItem>
-        ))}
-      </List>
+      {data?.length > 0 ? (
+        <>
+          <List>
+            {data.map((item) => (
+              <ListItem key={item.id}>
+                <ListItemHeader>
+                  <Link to={`#${item.author.id}`}>
+                    <ListItemAvatar src={item.author.avatar} />
+                  </Link>
+                  <ListItemAuthor>
+                    <strong>{item.author.username}</strong>
+                    <time>
+                      {new Date(item.createdAt)
+                        .toLocaleDateString()
+                        .replaceAll('/', '.')}{' '}
+                    </time>
+                  </ListItemAuthor>
+                </ListItemHeader>
+                <ListItemCover as={Link} to={`/posts/${item.id}`}>
+                  <Image fit='cover' src={item.cover} />
+                </ListItemCover>
+              </ListItem>
+            ))}
+          </List>
 
-      <ListPagination>
-        <ListPaginationButton
-          disabled={page <= 1}
-          onClick={handleClickPrevPage}
-        >
-          <RiArrowLeftLine />
-        </ListPaginationButton>
+          <ListPagination>
+            <ListPaginationButton
+              disabled={page <= 1}
+              onClick={handleClickPrevPage}
+            >
+              <RiArrowLeftLine />
+            </ListPaginationButton>
 
-        <ListPaginationButton onClick={handleClickNextPage}>
-          <RiArrowRightLine />
-        </ListPaginationButton>
-      </ListPagination>
+            <ListPaginationButton onClick={handleClickNextPage}>
+              <RiArrowRightLine />
+            </ListPaginationButton>
+          </ListPagination>
+        </>
+      ) : (
+        <ListNoData>No list data</ListNoData>
+      )}
     </div>
   );
 }
