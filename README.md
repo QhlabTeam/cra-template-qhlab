@@ -5,12 +5,12 @@
 <br />
 <h1 align="center">[Your Project Name]</h1>
 
-<p align="center">[Describe this project for other collaborators to know everything about this project development]</p>
+<p align="center">[Describe this project for other collaborators to know everything about development]</p>
 <br />
 
 <p align="center">
   <strong>
-  <a href="https://github.com/QhlabTeam/cra-template-qhlab/tree/main/docs/latest/README.md">This project built by Qhlab React App V2 architecture, read docs before you get started!!!</a>
+  <a href="https://github.com/QhlabTeam/cra-template-qhlab/tree/main/docs/latest/README.md">Built by Qhlab React App V2 architecture, read docs before you get started!!!</a>
   </strong>
 </p>
 
