@@ -3,23 +3,23 @@
 </p>
 
 <br />
-<h1 align="center">[Your Project Name]</h1>
+<h1 align="center">[你的项目名]</h1>
 
-<p align="center">[Describe this project]</p>
+<p align="center">[简单描述该业务项目]</p>
 <br />
 
 <p align="center">
   <strong>
-  <a href="https://github.com/QhlabTeam/cra-template-qhlab/tree/main/docs/latest/README.md">Built by Qhlab React App V2 architecture, read docs before you get started!!!</a>
+  <a href="https://github.com/QhlabTeam/cra-template-qhlab/tree/main/docs/latest/README.md">
+  该项目使用Qhlab React App V2架构构建，开始前请务必阅读文档！！！
+  </a>
   </strong>
 </p>
 
-<!-- You can remove multi-language if no need -->
+<!-- 你可以删除多语言如果不需要的话 -->
 <p align="center">
-  English | <a href="README.zh-CN.md">简体中文</a>
+  <a href="README.md">English</a> | 简体中文
 </p>
-
-
 
 - [Installation](#installation)
 - [NPM Scripts](#npm-scripts)
@@ -29,7 +29,7 @@
   - [Links](#links)
 - [Drafts](#drafts)
 
-## Installation
+## 安装依赖
 
 ```sh
 yarn
@@ -38,7 +38,7 @@ yarn
 yarn install
 ```
 
-## NPM Scripts
+## NPM 脚本
 
 ```sh
 yarn scripts
@@ -47,28 +47,28 @@ yarn scripts
 yarn scripts run dev
 ```
 
-## Knowledge
+## 相关知识
 
-### Environment Viarables
+### 环境变量
 
 - `REACT_APP_API_URL` - Http request base url
 - `REACT_APP_ENABLE_MSW` - Whether to enable mock server
 - `REACT_APP_STORAGE_PREFIX` - Storage name prefix
 - `REACT_APP_TITLE` - Helmet html base title
 
-### API URL
+### 接口地址
 
 - Development - http://your-dev-api-url
 - Production - http://your-prod-api-url
 - Test - http://your-test-api-url
 
-### Links
+### 链接
 
-- Repo - https://your-git-repo-link
+- 仓库 - https://your-git-repo-link
 - UI - https://your-ui-link
-- Prototype - https://your-proto-link
-- PRD - https://your-prd-link
+- 原型 - https://your-proto-link
+- 需求文档 - https://your-prd-link
 
-## Drafts
+## 草稿
 
-[Feel free to write temporary or meaningless information]
+[随意编写记录临时性或无意义的信息]
