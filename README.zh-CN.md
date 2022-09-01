@@ -51,16 +51,16 @@ yarn scripts run dev
 
 ### 环境变量
 
-- `REACT_APP_API_URL` - Http request base url
-- `REACT_APP_ENABLE_MSW` - Whether to enable mock server
-- `REACT_APP_STORAGE_PREFIX` - Storage name prefix
-- `REACT_APP_TITLE` - Helmet html base title
+- `REACT_APP_API_URL` - Http 请求的 base url
+- `REACT_APP_ENABLE_MSW` - 是否开启 mock server
+- `REACT_APP_STORAGE_PREFIX` - Storage 名称前缀
+- `REACT_APP_TITLE` - Helmet html 默认标题
 
 ### 接口地址
 
-- Development - http://your-dev-api-url
-- Production - http://your-prod-api-url
-- Test - http://your-test-api-url
+- 开发环境 - http://your-dev-api-url
+- 生产环境 - http://your-prod-api-url
+- 测试环境 - http://your-test-api-url
 
 ### 链接
 
