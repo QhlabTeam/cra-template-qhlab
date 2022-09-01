@@ -37,6 +37,21 @@ export function persistDb(model) {
   }));
 }
 
+/* -------------------------- Initialize -------------------------- */
+function initializeDb() {
+  const database = dbLiveStorage.getValue();
+  Object.entries(db).forEach(([key, model]) => {
+    const dataEntries = database[key];
+    if (dataEntries) {
+      dataEntries?.forEach((entry) => {
+        model.create(entry);
+      });
+    }
+  });
+}
+
+initializeDb();
+
 // Users
 const users = genArray(12).map(() =>
   db.user.create({
