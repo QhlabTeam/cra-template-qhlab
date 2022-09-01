@@ -3,6 +3,7 @@ import {RiArrowLeftLine, RiArrowRightLine} from 'react-icons/ri';
 import {Link} from 'react-router-dom';
 
 import {Image} from '../../../../components/Image';
+import {THEME} from '../../../../constants/theme';
 import {useGetPosts} from '../../api/useGetPosts';
 import {
   List,
@@ -74,7 +75,18 @@ export function PostList() {
           </ListPagination>
         </>
       ) : (
-        <ListNoData>No list data</ListNoData>
+        <ListNoData>
+          No posts data.{' '}
+          <Link
+            style={{
+              color: THEME.colors.primary,
+              textDecoration: 'underline',
+            }}
+            to='/posts/new'
+          >
+            Create your first post
+          </Link>
+        </ListNoData>
       )}
     </div>
   );
