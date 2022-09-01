@@ -21,13 +21,13 @@
   <a href="README.md">English</a> | 简体中文
 </p>
 
-- [Installation](#installation)
-- [NPM Scripts](#npm-scripts)
-- [Knowledge](#knowledge)
-  - [Environment Viarables](#environment-viarables)
-  - [API URL](#api-url)
-  - [Links](#links)
-- [Drafts](#drafts)
+- [安装依赖](#安装依赖)
+- [NPM 脚本](#npm-脚本)
+- [相关知识](#相关知识)
+  - [环境变量](#环境变量)
+  - [接口地址](#接口地址)
+  - [链接](#链接)
+- [草稿](#草稿)
 
 ## 安装依赖
 
