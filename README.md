@@ -14,8 +14,6 @@
 <!-- You can remove multi-language if no need -->
 English | [简体中文](README.zh-CN.md)
 
----
-
 - [Installation](#installation)
 - [NPM Scripts](#npm-scripts)
 - [Knowledge](#knowledge)

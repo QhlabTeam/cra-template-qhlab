@@ -14,8 +14,6 @@
 <!-- You can remove multi-language if no need -->
 English | [简体中文](README.zh-CN.md)
 
----
-
 - [安装依赖](#安装依赖)
 - [NPM 脚本](#npm-脚本)
 - [相关知识](#相关知识)

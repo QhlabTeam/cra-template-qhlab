@@ -8,9 +8,7 @@
 <p align="center"> ⚛️ A Domain-Driven Design (DDD) Architecture for Qhlab React App V2</p>
 <br />
 
-<p align="center">
-  English | <a href="README.zh-CN.md">简体中文</a>
-</p>
+English | [简体中文](README.zh-CN.md)
 
 - [Get Started](#get-started)
   - [Import on Github/Gitlab (1)](#import-on-githubgitlab-1)
@@ -116,12 +114,6 @@ If you met error `fatal: refusing to merge unrelated histories`, try to add a fl
 git pull https://github.com/QhlabTeam/cra-template-qhlab.git --allow-unrelated-histories
 ```
 
-Make sure your template branch is targeting the correct remote
-
-```sh
-git branch -vv
-```
-
 ## Install Dependencies
 
 ```sh
@@ -133,10 +125,14 @@ yarn install
 
 ## NPM Scripts
 
-All scripts should be written in `scripts.json` file and use them with one single command. We use [better-scripts](https://github.com/iamyoki/better-scripts) to manage all npm scripts, read more on the [docs site](https://better-scripts.vercel.app/).
+All scripts should be written in `scripts.json` file and use them with one single command. We use [better-scripts](https://github.com/iamyoki/better-scripts) to manage all npm scripts, read more on the [📄 docs site](https://better-scripts.vercel.app/).
 
 ```sh
+# Show all scripts
 yarn scripts
+
+# Run a specific script
+yarn scripts run dev
 ```
 
 ## Project Structure
