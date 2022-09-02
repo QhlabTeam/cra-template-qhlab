@@ -5,7 +5,7 @@ import {nanoid} from 'nanoid';
 
 import {CONFIG} from '../../constants/config';
 import {JWT_SECRET} from '../constants';
-import {db} from '../db';
+import {db, persistDb} from '../db';
 
 const invalidUsername = (username) => /\s/.test(username);
 const invalidPassword = (password) => /\s/.test(password);
@@ -41,6 +41,8 @@ export const authHandlers = [
       });
       const {password: __omitPassword, ...userInfo} = user;
       const token = jwt.sign(userInfo, JWT_SECRET);
+
+      persistDb('user');
 
       return res(ctx.delay(2000), ctx.json({userInfo, token}));
     } catch (error) {

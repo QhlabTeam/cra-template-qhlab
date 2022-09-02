@@ -115,4 +115,4 @@ export const ListPaginationButton = styled.button`
   align-items: center;
 `;
 
-export const ListNoData = styled.div``;
+export const NoPostsData = styled.div``;

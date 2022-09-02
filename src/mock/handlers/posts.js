@@ -4,7 +4,7 @@ import {nanoid} from 'nanoid';
 
 import {CONFIG} from '../../constants/config';
 import {HTTP_ERRORS} from '../constants';
-import {db} from '../db';
+import {db, persistDb} from '../db';
 import {requireAuth} from '../utils';
 
 export const postsHandlers = [
@@ -34,6 +34,7 @@ export const postsHandlers = [
         createdAt: faker.date.recent(7),
         author: user,
       });
+      persistDb('post');
       return res(ctx.delay(2000), ctx.json(result));
     } catch (error) {
       const isUnauthorized = [

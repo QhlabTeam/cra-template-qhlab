@@ -11,7 +11,7 @@ import {
   ListItemHeader,
   ListItemAvatar,
   ListItemCover,
-  ListNoData,
+  NoPostsData,
 } from './styles';
 import {ListItem, ListPagination, ListPaginationButton} from './styles';
 
@@ -75,7 +75,7 @@ export function PostList() {
           </ListPagination>
         </>
       ) : (
-        <ListNoData>
+        <NoPostsData>
           No posts data.{' '}
           <Link
             style={{
@@ -84,9 +84,9 @@ export function PostList() {
             }}
             to='/posts/new'
           >
-            Create your first post
+            👉🏻 Create your first post.
           </Link>
-        </ListNoData>
+        </NoPostsData>
       )}
     </div>
   );
