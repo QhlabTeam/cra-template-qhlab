@@ -1,76 +1,120 @@
 # Write a Feature
 
-Let's create a "landing" feature
+Let's create an "intro" feature
 
-## Create "landing" folder
+## Create "intro" folder
 
 ```plain
 src
 └── features
-    └── landing
+    └── intro
         ├── api
         ├── components
         └── routes
 ```
 
-## Create "LandingPage" route
+## Create "IntroPage" route
 
 ```plain
-landing
+intro
 └── routes
-    └── LandingPage.jsx
+    └── IntroPage.jsx
 ```
 
-LandingPage.jsx
+[IntroPage.jsx](../../../src/features/intro/routes/IntroPage.jsx)
 
 ```jsx
-import {LandingIntro} from '../components/LandingIntro'
+import styled from '@emotion/styled';
+import {RiExternalLinkLine} from 'react-icons/ri';
 
-export function LandingPage() {
-  return <div>
-    <LandingIntro />
-  </div>
+import {images} from '../../../assets';
+import {Image} from '../../../components/Image';
+import {Logo} from '../../../components/Logo';
+import {Page} from '../../../components/Page';
+import {Intro} from '../components/Intro';
+
+const ExternalLink = styled.a({
+  display: 'inline-flex',
+  gap: 4,
+  fontSize: 14,
+  position: 'absolute',
+  top: 20,
+  right: 20,
+  alignItems: 'center',
+});
+
+export function IntroPage() {
+  return (
+    <Page
+      className='IntroPage'
+      css={{
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: 20,
+      }}
+    >
+      <ExternalLink
+        className='github'
+        href='https://github.com/QhlabTeam/cra-template-qhlab#readme'
+        rel='noreferrer'
+        target='_blank'
+      >
+        <Image size={18} src={images.githubMark} />
+        <span>Docs</span>
+        <RiExternalLinkLine />
+      </ExternalLink>
+
+      <Intro />
+
+      <Logo
+        css={{
+          position: 'absolute',
+          bottom: 20,
+          height: 60,
+        }}
+      />
+    </Page>
+  );
 }
+
 ```
 
-## Create "LandingIntro" component
+## Create "Intro" component
 
-Since we have used a `LandingIntro` component which requires api to fetch intro information from remote server, so let's implement it
+Since we have used a `Intro` component which requires api to fetch intro information from remote server, so let's implement it
 
 ```plain
-landing
-├── api
-│   └── useGetIntro.js
+intro
 └── components
-    └── LandingIntro.jsx
+    └── Intro.jsx
 ```
 
-LandingIntro.jsx
+[Intro.jsx](../../../src/features/intro/components/Intro.jsx)
 
 ```jsx
-import {useGetIntro} from '../api/useGetIntro'
+import {RiMouseLine} from 'react-icons/ri';
+import {Link} from 'react-router-dom';
 
-export function LandingIntro() {
-  const {data} = useGetIntro()
+import {Container, Heading, Contents} from './styles';
 
-  if(!data) return <p>Loading...</p>
+export function Intro() {
+  return (
+    <Container className='Intro'>
+      <Heading>Welcome to Qhlab</Heading>
 
-  return <div>
-    <h1>{data.title}</h1>
-    <p>{data.desc}</p>
-  </div>
+      <Contents>
+        <span>→ Check out the example page of</span>
+        <Link to='/posts'>
+          Posts <RiMouseLine />
+        </Link>
+      </Contents>
+    </Container>
+  );
 }
+
 ```
 
-useGetIntro
-
-```js
-export function useGetIntro() {
-  return useSWR('/api/intro')
-}
-```
-
-So far so good! Now we basically finished "landing" feature.
+So far so good! Now we basically finished "intro" feature.
 
 ## Register on AppRoutes
 
@@ -83,7 +127,8 @@ export function AppRoutes() {
   return (
     <Suspense fallback={null}>
       <Routes>
-        <Route index element={<LandingPage />} />
+        <Route index element={<IntroPage />} />
+        ...
       </Routes>
     </Suspense>
   );
