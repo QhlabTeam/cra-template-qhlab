@@ -5,21 +5,16 @@
 <br />
 <h1 align="center">[你的项目名]</h1>
 
+<p align="center"><img src='screenshot.png' width="600px" /></p>
 <p align="center">[简单描述该业务项目]</p>
 <br />
 
-<p align="center">
-  <strong>
-  <a href="https://github.com/QhlabTeam/cra-template-qhlab/tree/main/docs/latest/README.md">
-  该项目使用Qhlab React App V2架构构建，开始前请务必阅读文档！！！
-  </a>
-  </strong>
-</p>
+**[⚠️ 该项目使用Qhlab React App V2架构构建，开始前请务必阅读文档！！！](docs/latest/README.md)**
 
-<!-- 你可以删除多语言如果不需要的话 -->
-<p align="center">
-  <a href="README.md">English</a> | 简体中文
-</p>
+<!-- You can remove multi-language if no need -->
+English | [简体中文](README.zh-CN.md)
+
+---
 
 - [安装依赖](#安装依赖)
 - [NPM 脚本](#npm-脚本)

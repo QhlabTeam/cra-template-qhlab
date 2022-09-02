@@ -5,21 +5,16 @@
 <br />
 <h1 align="center">[Your Project Name]</h1>
 
+<p align="center"><img src='screenshot.png' width="600px" /></p>
 <p align="center">[Describe this project]</p>
 <br />
 
-<p align="center">
-  <strong>
-  <a href="https://github.com/QhlabTeam/cra-template-qhlab/tree/main/docs/latest/README.md">Built by Qhlab React App V2 architecture, read docs before you get started!!!</a>
-  </strong>
-</p>
+**[⚠️ Built by Qhlab React App V2 architecture, read docs before you get started!!!](docs/latest/README.md)**
 
 <!-- You can remove multi-language if no need -->
-<p align="center">
-  English | <a href="README.zh-CN.md">简体中文</a>
-</p>
+English | [简体中文](README.zh-CN.md)
 
-
+---
 
 - [Installation](#installation)
 - [NPM Scripts](#npm-scripts)
