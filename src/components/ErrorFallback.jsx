@@ -16,7 +16,9 @@ const Container = styled.div`
   }
 `;
 
-/** @param {import('react-error-boundary').FallbackProps} */
+/**
+ * @param {import('react-error-boundary').FallbackProps}
+ *  */
 export function ErrorFallback({error, resetErrorBoundary}) {
   return (
     <Container>
