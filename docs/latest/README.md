@@ -97,7 +97,7 @@ git branch -d upgrade-to-react-18
 
 ## Keep Updating
 
-Once you cloned this template repo, create a `template` branch with this template repo remote url, so that you can keep updates by merging the newest `template` branch.
+Pull and merge from remote template origin branch to update
 
 ```sh
 # React17
