@@ -2,5 +2,14 @@
   "extends": ["plugin:@qhlab/react", "plugin:storybook/recommended"],
   "parserOptions": {
     "project": "./jsconfig.json"
-  }
+  },
+  "overrides": [
+    {
+      "files": ["cypress/**/*.js"],
+      "extends": [
+        "plugin:cypress/recommended",
+        "plugin:chai-friendly/recommended"
+      ]
+    }
+  ]
 }
