@@ -20,7 +20,13 @@ module.exports = {
       rule.loader?.includes('babel-loader')
     );
 
-    babelRule.options.presets.push('@emotion/babel-preset-css-prop');
+    babelRule.options.presets.push([
+      '@babel/preset-react',
+      {
+        runtime: 'automatic',
+        importSource: '@emotion/react',
+      },
+    ]);
 
     // Webpack5 needs manually fallbacks
     // https://github.com/facebook/create-react-app/issues/11756#issuecomment-1001769356

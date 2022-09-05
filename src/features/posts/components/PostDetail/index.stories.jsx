@@ -1,5 +1,5 @@
 import {PostDetail} from '.';
-import {db} from '../../../../mocks/db';
+import {db} from '../../../../mock/db';
 
 /** @type {import('@storybook/react').Meta} */
 export default {

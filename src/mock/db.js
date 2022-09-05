@@ -1,10 +1,13 @@
-/* eslint-disable no-unused-vars */
 import {faker} from '@faker-js/faker';
 import {factory, nullable, oneOf, primaryKey} from '@mswjs/data';
+import {LiveStorage} from '@mswjs/storage';
 import {nanoid} from 'nanoid';
 
+import {CONFIG} from '../constants/config';
 import {genArray} from '../utils/genArray';
 import {storage} from '../utils/storage';
+
+const dbLiveStorage = new LiveStorage(`${CONFIG.storagePrefix}msw_db`, {});
 
 const models = {
   post: {
@@ -25,6 +28,30 @@ const models = {
 
 export const db = factory(models);
 
+/** @param {keyof typeof db} model */
+export function persistDb(model) {
+  if (process.env.NODE_ENV === 'test') return;
+  dbLiveStorage.update((prevData) => ({
+    ...prevData,
+    [model]: db[model].getAll(),
+  }));
+}
+
+/* -------------------------- Initialize -------------------------- */
+// function initializeDb() {
+//   const database = dbLiveStorage.getValue();
+//   Object.entries(db).forEach(([key, model]) => {
+//     const dataEntries = database[key];
+//     if (dataEntries) {
+//       dataEntries?.forEach((entry) => {
+//         model.create(entry);
+//       });
+//     }
+//   });
+// }
+
+// initializeDb();
+
 // Users
 const users = genArray(12).map(() =>
   db.user.create({
@@ -43,6 +70,7 @@ if (persistedUser) {
 }
 
 // Posts
+// eslint-disable-next-line no-unused-vars
 const posts = users.map((user) =>
   db.post.create({
     id: nanoid(),

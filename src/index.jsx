@@ -2,7 +2,7 @@ import React from 'react';
 import {createRoot} from 'react-dom/client';
 
 import App from './App';
-import {setupMocks} from './mocks/setupMocks';
+import {setupMocks} from './mock/setupMocks';
 import reportWebVitals from './reportWebVitals';
 
 // If you want to enable msw mocks, pass an env:

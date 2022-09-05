@@ -1,6 +1,7 @@
 import {RiArrowDropLeftLine} from 'react-icons/ri';
 import {useNavigate} from 'react-router-dom';
 
+import {Head} from '../../../../components/Head';
 import {useAuth} from '../../../../hooks/useAuth';
 import {
   Page,
@@ -25,29 +26,32 @@ export function Layout(
   }
 
   return (
-    <Page
-      className={title ? `${title.replace(/\s|page/gi, '')}Page` : null}
-      {...rest}
-    >
-      <Header>
-        {showBackButton && (
-          <BackButton onClick={() => navigate(-1)}>
-            <RiArrowDropLeftLine />
-          </BackButton>
-        )}
+    <>
+      <Head title={title} />
+      <Page
+        className={title ? `${title.replace(/\s|page/gi, '')}Page` : null}
+        {...rest}
+      >
+        <Header>
+          {showBackButton && (
+            <BackButton onClick={() => navigate(-1)}>
+              <RiArrowDropLeftLine />
+            </BackButton>
+          )}
 
-        {title && <Title>{title}</Title>}
+          {title && <Title>{title}</Title>}
 
-        {actionElement && <Actionbar>{actionElement}</Actionbar>}
+          {actionElement && <Actionbar>{actionElement}</Actionbar>}
 
-        {showUser && (
-          <UserButton onClick={handleClickUser}>
-            <Avatar src={userInfo?.avatar} />
-          </UserButton>
-        )}
-      </Header>
+          {showUser && (
+            <UserButton onClick={handleClickUser}>
+              <Avatar src={userInfo?.avatar} />
+            </UserButton>
+          )}
+        </Header>
 
-      <Main>{children}</Main>
-    </Page>
+        <Main>{children}</Main>
+      </Page>
+    </>
   );
 }

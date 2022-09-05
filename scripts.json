@@ -5,7 +5,7 @@
     "desc": "Start a development server",
     "command": "craco start"
   },
-  "dev:mock": {
+  "dev-mock": {
     "alias": "🌟 Dev Mock",
     "desc": "Start a development server with mock",
     "command": "craco start",
@@ -29,17 +29,23 @@
     "desc": "Create a production build",
     "command": "craco build"
   },
-  "test": {
-    "alias": "🧪 Test",
-    "desc": "Run unit tests",
-    "command": "craco test"
+  "tests": {
+    "alias": "🧪 Tests",
+    "desc": "Unit, e2e tests",
+    "scripts": {
+      "unit-test": ["craco test", "Run unit test"],
+      "e2e-test": {
+        "desc": "Open cypress e2e test",
+        "command": "start-server-and-test 'yarn scripts run dev-mock' http://localhost:3000 'cypress open'"
+      }
+    }
   },
   "lints": {
-    "alias": "🔎 Lint scripts",
-    "desc": "Lint source code",
+    "alias": "🔎 Lints",
+    "desc": "Lint and fix",
     "scripts": {
-      "lint": ["eslint \"src/**/*.{js,jsx}\"", "Lint only"],
-      "lint-fix": ["eslint \"src/**/*.{js,jsx}\" --fix", "Lint and fix"]
+      "lint": ["eslint src/**/*.{js,jsx}", "Lint only"],
+      "lint-fix": ["eslint src/**/*.{js,jsx} --fix", "Lint and fix"]
     }
   },
   "eject": {

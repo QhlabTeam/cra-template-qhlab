@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import {useLocation, useNavigate, useSearchParams} from 'react-router-dom';
 
+import {Head} from '../../../components/Head';
 import {Page as StyledPage} from '../../../components/Page';
 import {LoginForm} from '../components/LoginForm';
 
@@ -20,10 +21,13 @@ export function LoginPage() {
   const redirect = search.get('redirect');
 
   return (
-    <Page className='LoginPage'>
-      <LoginForm
-        onSuccess={() => navigate(redirectLocation ?? redirect ?? '/posts')}
-      />
-    </Page>
+    <>
+      <Head title='Login' />
+      <Page className='LoginPage'>
+        <LoginForm
+          onSuccess={() => navigate(redirectLocation ?? redirect ?? '/posts')}
+        />
+      </Page>
+    </>
   );
 }

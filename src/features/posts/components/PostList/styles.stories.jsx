@@ -2,7 +2,7 @@ import {RiArrowLeftLine, RiArrowRightLine} from 'react-icons/ri';
 import {Link} from 'react-router-dom';
 
 import {Image} from '../../../../components/Image';
-import {db} from '../../../../mocks/db';
+import {db} from '../../../../mock/db';
 import {
   ListItem,
   ListPagination,

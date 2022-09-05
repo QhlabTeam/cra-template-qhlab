@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 import {useNotifications} from '../components/Notifications';
-import {ENV} from '../constants/env';
+import {CONFIG} from '../constants/config';
 import {storage} from '../utils/storage';
 import {history} from './history';
 
@@ -14,7 +14,7 @@ function authRequestInterceptor(config) {
 }
 
 // Create axios instance as request
-export const request = axios.create({baseURL: ENV.apiUrl});
+export const request = axios.create({baseURL: CONFIG.apiUrl});
 
 // Register default interceptors
 request.interceptors.request.use(authRequestInterceptor);

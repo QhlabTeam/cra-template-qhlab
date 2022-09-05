@@ -1,12 +1,13 @@
 /* eslint-disable react/jsx-filename-extension */
 import {initialize, mswDecorator} from 'msw-storybook-addon';
 import React from 'react';
+import {HelmetProvider} from 'react-helmet-async';
 import {withRouter} from 'storybook-addon-react-router-v6';
 import {SWRConfig} from 'swr';
 
 import {GlobalStyles} from '../src/GlobalStyles';
 import {request} from '../src/lib/request';
-import {handlers} from '../src/mocks/handlers';
+import {handlers} from '../src/mock/handlers';
 
 export const parameters = {
   actions: {argTypesRegex: '^on[A-Z].*'},
@@ -31,9 +32,11 @@ export const decorators = [
   mswDecorator,
   withRouter,
   (Story) => (
-    <SWRConfig value={{fetcher: request.get}}>
-      <Story />
-      <GlobalStyles />
-    </SWRConfig>
+    <HelmetProvider>
+      <SWRConfig value={{fetcher: request.get}}>
+        <Story />
+        <GlobalStyles />
+      </SWRConfig>
+    </HelmetProvider>
   ),
 ];

@@ -3,15 +3,15 @@ import jwt from 'jsonwebtoken';
 import {rest} from 'msw';
 import {nanoid} from 'nanoid';
 
-import {ENV} from '../../constants/env';
+import {CONFIG} from '../../constants/config';
 import {JWT_SECRET} from '../constants';
-import {db} from '../db';
+import {db, persistDb} from '../db';
 
 const invalidUsername = (username) => /\s/.test(username);
 const invalidPassword = (password) => /\s/.test(password);
 
 export const authHandlers = [
-  rest.post(`${ENV.apiUrl}/api/auth/register`, (req, res, ctx) => {
+  rest.post(`${CONFIG.apiUrl}/api/auth/register`, (req, res, ctx) => {
     try {
       const {username, password} = req.body;
 
@@ -42,6 +42,8 @@ export const authHandlers = [
       const {password: __omitPassword, ...userInfo} = user;
       const token = jwt.sign(userInfo, JWT_SECRET);
 
+      persistDb('user');
+
       return res(ctx.delay(2000), ctx.json({userInfo, token}));
     } catch (error) {
       return res(
@@ -54,7 +56,7 @@ export const authHandlers = [
     }
   }),
 
-  rest.post(`${ENV.apiUrl}/api/auth/login`, (req, res, ctx) => {
+  rest.post(`${CONFIG.apiUrl}/api/auth/login`, (req, res, ctx) => {
     try {
       const {username, password} = req.body;
 

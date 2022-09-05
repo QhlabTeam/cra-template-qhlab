@@ -1,30 +1,32 @@
-import {ENV} from '../constants/env';
+import {CONFIG} from '../constants/config';
 
 export const storage = {
   getToken() {
-    return JSON.parse(window.localStorage.getItem(`${ENV.storagePrefix}token`));
+    return JSON.parse(
+      window.localStorage.getItem(`${CONFIG.storagePrefix}token`)
+    );
   },
   setToken(token) {
     window.localStorage.setItem(
-      `${ENV.storagePrefix}token`,
+      `${CONFIG.storagePrefix}token`,
       JSON.stringify(token)
     );
   },
   clearToken() {
-    window.localStorage.removeItem(`${ENV.storagePrefix}token`);
+    window.localStorage.removeItem(`${CONFIG.storagePrefix}token`);
   },
   getUserInfo() {
     return JSON.parse(
-      window.localStorage.getItem(`${ENV.storagePrefix}userInfo`)
+      window.localStorage.getItem(`${CONFIG.storagePrefix}userInfo`)
     );
   },
   setUserInfo(UserInfo) {
     window.localStorage.setItem(
-      `${ENV.storagePrefix}userInfo`,
+      `${CONFIG.storagePrefix}userInfo`,
       JSON.stringify(UserInfo)
     );
   },
   clearUserInfo() {
-    window.localStorage.removeItem(`${ENV.storagePrefix}userInfo`);
+    window.localStorage.removeItem(`${CONFIG.storagePrefix}userInfo`);
   },
 };
