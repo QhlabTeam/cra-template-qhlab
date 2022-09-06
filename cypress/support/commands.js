@@ -35,3 +35,10 @@
 //     }
 //   }
 // }
+
+// Visit and wait for msw server enabled
+Cypress.Commands.add('visitAndWait', (path, timeout = 500) => {
+  cy.visit(path);
+  // eslint-disable-next-line cypress/no-unnecessary-waiting
+  cy.wait(timeout);
+});

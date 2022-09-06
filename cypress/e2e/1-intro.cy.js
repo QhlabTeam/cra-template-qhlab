@@ -1,6 +1,6 @@
 describe('Intro page', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000');
+    cy.visit('/');
     // eslint-disable-next-line cypress/no-unnecessary-waiting
     cy.wait(500);
   });
