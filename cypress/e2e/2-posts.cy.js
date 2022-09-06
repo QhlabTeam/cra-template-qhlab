@@ -1,11 +1,7 @@
 describe('Posts page', () => {
   beforeEach(() => {
-    cy.visit('/posts', {
-      onBeforeLoad(win) {
-        cy.stub(win.console, 'log').as('logger');
-      },
-    });
-    cy.get('@logger').should('be.called');
+    cy.visit('/posts');
+    cy.waitMSW();
   });
 
   it('displays posts title', () => {

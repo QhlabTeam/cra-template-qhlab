@@ -36,9 +36,13 @@
 //   }
 // }
 
-// Visit and wait for msw server enabled
-Cypress.Commands.add('visitAndWait', (path, timeout = 500) => {
-  cy.visit(path);
-  // eslint-disable-next-line cypress/no-unnecessary-waiting
-  cy.wait(timeout);
+// Wait till msw mock enabled
+Cypress.Commands.add('waitMSW', () => {
+  return cy.window({log: false}).then((win) => {
+    win.console.groupCollapsed = cy.spy().as('consoleGroup').log(false);
+    cy.get('@consoleGroup', {log: false}).should(
+      'be.calledWithMatch',
+      Cypress.sinon.match('Mocking enabled.')
+    );
+  });
 });
