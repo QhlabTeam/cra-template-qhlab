@@ -1,7 +1,7 @@
 import {storage} from '../../src/utils/storage';
 
 const username = 'iamyoki';
-const passowrd = '123';
+const password = '123';
 
 describe('Auth', () => {
   beforeEach(() => {
@@ -9,13 +9,13 @@ describe('Auth', () => {
     cy.waitMSW();
   });
 
-  it.only('displays log in form', () => {
+  it('displays log in form', () => {
     cy.contains('Log in').should('be.visible');
   });
 
   it('sign up', () => {
     cy.get('input[placeholder=Name]').type(username);
-    cy.get('input[placeholder=Password]').type(passowrd);
+    cy.get('input[placeholder=Password]').type(password);
     cy.get('button')
       .contains('Sign up')
       .click()
@@ -25,19 +25,23 @@ describe('Auth', () => {
       });
   });
 
-  it('log in', () => {
+  it.only('log in', () => {
     cy.wrap(
       fetch('/api/auth/register', {
         method: 'POST',
-        body: {
-          username,
-          passowrd,
+        headers: {
+          'Content-Type': 'application/json',
         },
+        body: JSON.stringify({
+          username,
+          password,
+        }),
       }).then((res) => res.json())
     );
 
-    // cy.get('input[placeholder=Name]').type(username);
-    // cy.get('input[placeholder=Password]').type(passowrd);
-    // cy.get('button').contains('Login').click();
+    cy.get('input[placeholder=Name]').type(username);
+    cy.get('input[placeholder=Password]').type(password);
+    cy.get('button').contains('Login').click();
+    cy.url().should('include', '/posts');
   });
 });
