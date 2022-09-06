@@ -35,3 +35,14 @@
 //     }
 //   }
 // }
+
+// Wait till msw mock enabled
+Cypress.Commands.add('waitMSW', () => {
+  return cy.window({log: false}).then((win) => {
+    win.console.groupCollapsed = cy.spy().as('consoleGroup').log(false);
+    cy.get('@consoleGroup', {log: false}).should(
+      'be.calledWithMatch',
+      Cypress.sinon.match('Mocking enabled.')
+    );
+  });
+});
