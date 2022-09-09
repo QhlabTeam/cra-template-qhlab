@@ -10,6 +10,12 @@ const Container = styled.div`
   justify-content: center;
   font-size: 14px;
 
+  pre {
+    padding: 20px;
+    white-space: pre-wrap;
+    text-align: center;
+  }
+
   button {
     text-decoration: underline;
     width: 80px;
