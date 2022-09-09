@@ -13,11 +13,13 @@ module.exports = {
         },
       ],
     ],
+    plugins: ['@emotion'],
   },
   webpack: {
     /** @param {import('webpack').Configuration} config */
     configure: (config) => {
-      // Temp fix antd issue https://github.com/ant-design/ant-design/issues/33327#issuecomment-996482057
+      // Temp fix antd issue
+      // https://github.com/ant-design/ant-design/issues/33327#issuecomment-996482057
       config.ignoreWarnings = [/Failed to parse source map/];
 
       // Webpack5 needs manually fallbacks
@@ -30,21 +32,24 @@ module.exports = {
         'process/browser': require.resolve('process/browser'),
       };
 
+      // Fix buffer not defined
+      // https://stackoverflow.com/questions/68707553/uncaught-referenceerror-buffer-is-not-defined
       config.plugins.push(
-        // Fix buffer not defined
-        // https://stackoverflow.com/questions/68707553/uncaught-referenceerror-buffer-is-not-defined
         new webpack.ProvidePlugin({
           process: 'process/browser',
           Buffer: ['buffer', 'Buffer'],
         })
-        // Fix tree shaking problem
-        // https://github.com/facebook/create-react-app/issues/9674#issuecomment-1096270248
-        // new webpack.DefinePlugin({
-        //   ...(!process.env.REACT_APP_ENABLE_MSW && {
-        //     'process.env.REACT_APP_ENABLE_MSW': false,
-        //   }),
-        // }),
       );
+
+      // Fix tree shaking problem
+      // https://github.com/facebook/create-react-app/issues/9674#issuecomment-1096270248
+      // config.plugins.push(
+      //   new webpack.DefinePlugin({
+      //     ...(!process.env.REACT_APP_ENABLE_MSW && {
+      //       'process.env.REACT_APP_ENABLE_MSW': false,
+      //     }),
+      //   })
+      // );
 
       return config;
     },
